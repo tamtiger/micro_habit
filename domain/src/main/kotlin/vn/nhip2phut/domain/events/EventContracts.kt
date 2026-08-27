@@ -167,5 +167,10 @@ object EventContractRegistryV1 {
     }
 
     fun maskFor(name: EventNameV1): EventEnvelopeMaskV1 = masks.getValue(name)
+
+    val specs: Map<EventNameV1, EventSpecV1<out EventPropertiesV1>>
+        get() = EventSpecsV1.all
+
+    fun specFor(name: EventNameV1): EventSpecV1<out EventPropertiesV1> = specs.getValue(name)
 }
 

@@ -10,10 +10,17 @@ android {
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
     implementation(project(":domain"))
     implementation(libs.androidx.core.ktx)
+    testImplementation(kotlin("test"))
+    testImplementation(libs.junit4)
 }
 

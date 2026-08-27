@@ -4,13 +4,14 @@
   "id": "20260827-154711-del-foundation",
   "title": "DEL-01 Foundation",
   "mode": "full",
-  "status": "blocked",
-  "checkpoint": "implementing",
-  "goal": "Dựng nền tảng Android MVP cho Nhịp 2 Phút: project/module skeleton, baseline SDK, manifest offline allowlist, app shell, codec/storage foundation, validation script và CHANGELOG top-entry.",
+  "status": "completed",
+  "checkpoint": "finishing",
+  "goal": "Hoàn thiện DEL-01 canonical thành Android foundation chạy được: module/SDK, app shell Navigation Compose, encrypted Room và clock foundation, shared closed WireV1/event codec, Gradle Wrapper cùng static/unit/instrumented/merged-manifest gates.",
   "nonGoals": [
-    "Không implement flow onboarding/check-in/rule engine nghiệp vụ của DEL-02.",
-    "Không implement player, reminder, weekly summary, export/delete hoàn chỉnh hoặc content production ngoài foundation placeholder có contract rõ.",
-    "Không thêm account, network, AI, backend, remote analytics, billing hoặc permission ngoài allowlist."
+    "Không implement onboarding, check-in, rule engine hoặc transaction nghiệp vụ của DEL-02.",
+    "Không implement scheduler/player/weekly aggregation/export/delete business flow; DEL-01 chỉ tạo typed DTO/codec, clock_state encrypted storage và reusable foundation contracts.",
+    "Không thêm account, network runtime, AI, backend, remote analytics, billing hoặc permission ngoài allowlist.",
+    "Không cài toolchain system-wide, không đổi baseline SDK 26/36/36 và không commit/push tự động."
   ],
   "acceptanceCriteria": [
     {
@@ -18,7 +19,7 @@
       "text": "Repo có Android multi-module skeleton theo ARC dependency direction gồm :app, :ui, :domain, :data, :platform và baseline minSdk=26,targetSdk=36,compileSdk=36 được khai báo tập trung.",
       "status": "met",
       "evidenceIds": [
-        "E-DEL01-STATIC"
+        "E-DEL01-GRADLE-FINAL-R5"
       ]
     },
     {
@@ -26,7 +27,7 @@
       "text": "App manifest và foundation config giữ offline posture: không INTERNET/health/calendar/location/activity/billing/CALL_PHONE; chỉ allowlist permission nền tảng cho notification và boot reconcile khi cần.",
       "status": "met",
       "evidenceIds": [
-        "E-DEL01-STATIC"
+        "E-DEL01-ARC109-R2-FINAL-R5"
       ]
     },
     {
@@ -34,7 +35,7 @@
       "text": "App shell có MainActivity đặt FLAG_SECURE trước setContent, AppContainer composition root, navigation shell Compose và resource vi-VN tối thiểu.",
       "status": "met",
       "evidenceIds": [
-        "E-DEL01-STATIC"
+        "E-DEL01-DEVICE-R2-FINAL-R5"
       ]
     },
     {
@@ -42,7 +43,7 @@
       "text": "Foundation có closed codec/storage seed cho canonical enum/time/LocalStamp/event registry và test/verification phát hiện default sai, duplicate JSON key hoặc schema switch tách rời.",
       "status": "met",
       "evidenceIds": [
-        "E-DEL01-STATIC"
+        "E-DEL01-CODEC-R2-FINAL-R5"
       ]
     },
     {
@@ -50,7 +51,7 @@
       "text": "Có script kiểm tra foundation/CI gate cục bộ cho SDK baseline, module boundary, manifest permission allowlist, FLAG_SECURE, CHANGELOG top-entry và repo status.",
       "status": "met",
       "evidenceIds": [
-        "E-DEL01-STATIC"
+        "E-DEL01-STATIC-FINAL-R5"
       ]
     },
     {
@@ -58,39 +59,92 @@
       "text": "CHANGELOG.md được tạo/cập nhật với entry mới nhất ở đầu, ghi rõ thay đổi của phase DEL-01.",
       "status": "met",
       "evidenceIds": [
-        "E-DEL01-STATIC"
+        "E-DEL01-STATIC-FINAL-R5"
+      ]
+    },
+    {
+      "id": "AC-DEL01-007",
+      "text": "Repo có Gradle Wrapper 8.13 chính thức gồm gradlew, gradlew.bat, gradle-wrapper.jar và gradle-wrapper.properties; distribution/JAR SHA-256 được khóa và verification phát hiện wrapper thiếu hoặc sai.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-WRAPPER-FINAL-R5"
+      ]
+    },
+    {
+      "id": "AC-DEL01-008",
+      "text": "Foundation có encrypted Room production table clock_state trong nhip2phut.db schema v1, AES-GCM/AndroidKeyStore với canonical AAD và fail-closed, migration harness không destructive, cùng fake clock/timezone và round-trip/tamper tests.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-STORAGE-R2-FINAL-R5"
+      ]
+    },
+    {
+      "id": "AC-DEL01-009",
+      "text": "Một shared closed codec v1 trong domain bao phủ ProfileWireV1, sáu entity WireV1, WeeklySummaryWireV1, root chín arrays và typed registry đủ 48 event; exporter/importer/validator dùng cùng registry và generated negatives reject mọi shape không canonical.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-CODEC-R2-FINAL-R5"
+      ]
+    },
+    {
+      "id": "AC-DEL01-010",
+      "text": "Foundation verification chạy module-boundary, lint, unit, assemble, merged-manifest allowlist và API-36 instrumented gates; không source/binary permission, component, ACTION_CALL hoặc dependency direction ngoài allowlist.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-ARC101-FINAL-R5"
+      ]
+    },
+    {
+      "id": "AC-DEL01-011",
+      "text": "App shell đặt navigation graph tại app, truyền application-scoped AppContainer, dùng semantic design tokens và có resource qualifier exact vi-VN với parity key so với default.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-DEVICE-R2-FINAL-R5"
       ]
     }
   ],
   "relevantPaths": [
-    "settings.gradle.kts",
-    "build.gradle.kts",
-    "gradle/libs.versions.toml",
-    "app/**",
-    "ui/**",
-    "domain/**",
-    "data/**",
-    "platform/**",
-    "scripts/**",
+    ".gitignore",
     "CHANGELOG.md",
-    "docs/09-delivery-plan.md",
+    "app/**",
+    "build.gradle.kts",
+    "data/**",
+    "docs/05-data-privacy-security.md",
     "docs/06-technical-architecture.md",
+    "docs/07-analytics-and-validation.md",
     "docs/08-qa-and-release-gates.md",
+    "docs/09-delivery-plan.md",
+    "domain/**",
+    "gradle.properties",
+    "gradle/libs.versions.toml",
+    "gradle/wrapper/**",
     "gradlew",
     "gradlew.bat",
-    "gradle/wrapper/**"
+    "platform/**",
+    "scripts/**",
+    "settings.gradle.kts",
+    "ui/**"
   ],
   "relevantSpecs": [
     "docs/09-delivery-plan.md#DEL-01",
+    "docs/05-data-privacy-security.md#SEC-101",
     "docs/06-technical-architecture.md#ARC-001",
+    "docs/06-technical-architecture.md#ARC-007",
     "docs/06-technical-architecture.md#ARC-011",
     "docs/06-technical-architecture.md#ARC-012",
     "docs/06-technical-architecture.md#ARC-013",
+    "docs/06-technical-architecture.md#ARC-017",
     "docs/06-technical-architecture.md#ARC-024",
+    "docs/06-technical-architecture.md#ARC-025",
+    "docs/06-technical-architecture.md#ARC-101",
+    "docs/06-technical-architecture.md#ARC-106",
+    "docs/06-technical-architecture.md#ARC-109",
     "docs/06-technical-architecture.md#ARC-111",
     "docs/06-technical-architecture.md#ARC-127",
-    "docs/08-qa-and-release-gates.md#ARC-101",
-    "docs/08-qa-and-release-gates.md#ARC-109"
+    "docs/08-qa-and-release-gates.md#QA-001",
+    "docs/08-qa-and-release-gates.md#QA-040",
+    "docs/08-qa-and-release-gates.md#QA-052",
+    "docs/08-qa-and-release-gates.md#QA-071"
   ],
   "validationPlan": [
     {
@@ -170,6 +224,237 @@
         "settings.gradle.kts",
         "ui/**"
       ]
+    },
+    {
+      "id": "CHK-DEL01-ARC101",
+      "description": "Kiểm tra dependency direction và forbidden imports: domain thuần Kotlin/JDK, UI không truy cập DAO/Keystore/AlarmManager hoặc lateral module.",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-module-boundaries.ps1",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-001",
+        "AC-DEL01-005",
+        "AC-DEL01-010"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "platform/**",
+        "scripts/verify-module-boundaries.ps1",
+        "settings.gradle.kts",
+        "ui/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-ARC109",
+      "description": "Build và kiểm merged manifest debug từ AGP artifact: exact SDK baseline, permission/component/action allowlist và không ACTION_CALL.",
+      "command": ".gradlew.bat :app:verifyDebugMergedManifest --no-daemon",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-002",
+        "AC-DEL01-005",
+        "AC-DEL01-010"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "scripts/verify-merged-manifest.ps1",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-CODEC",
+      "description": "Chạy pure-JVM generated codec/event registry suite cho strict JSON, scalars, Profile/six entity/WeeklySummary/root chín arrays và 48 typed events.",
+      "command": ".gradlew.bat :domain:test --no-daemon",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-004",
+        "AC-DEL01-009"
+      ],
+      "inputs": [
+        "@task-contract",
+        "build.gradle.kts",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-DEVICE",
+      "description": "Chạy app shell và encrypted Room/Keystore/migration instrumented tests trên API 36 device hoặc temporary AVD.",
+      "command": ".gradlew.bat :app:connectedDebugAndroidTest :data:connectedDebugAndroidTest --no-daemon",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-003",
+        "AC-DEL01-008",
+        "AC-DEL01-010",
+        "AC-DEL01-011"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "settings.gradle.kts",
+        "ui/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-STORAGE",
+      "description": "Chạy focused unit suites cho canonical AAD, AES-GCM fail-closed, Room mapping, LocalStamp và persisted/fake clock behavior.",
+      "command": ".gradlew.bat :domain:test :data:testDebugUnitTest :platform:testDebugUnitTest --no-daemon",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-008"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-WRAPPER",
+      "description": "Kiểm Gradle Wrapper official 8.13, exact distribution SHA-256, exact Wrapper JAR SHA-256 và đủ generated scripts/properties.",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-wrapper.ps1",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-007"
+      ],
+      "inputs": [
+        "@task-contract",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "scripts/verify-wrapper.ps1"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-ARC109-R2",
+      "description": "Lệnh canonical thay thế check ARC109 đã đóng băng với cú pháp Windows path chính xác; build và kiểm merged manifest debug từ AGP artifact.",
+      "command": ".\\gradlew.bat :app:verifyDebugMergedManifest --no-daemon",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-002",
+        "AC-DEL01-005",
+        "AC-DEL01-010"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "scripts/verify-merged-manifest.ps1",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-CODEC-R2",
+      "description": "Lệnh canonical thay thế codec check đã đóng băng với cú pháp Windows path chính xác; chạy pure-JVM closed codec/event registry suite.",
+      "command": ".\\gradlew.bat :domain:test --no-daemon",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-004",
+        "AC-DEL01-009"
+      ],
+      "inputs": [
+        "@task-contract",
+        "build.gradle.kts",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-DEVICE-R2",
+      "description": "Lệnh canonical thay thế device check đã đóng băng với cú pháp Windows path chính xác; chạy app shell và encrypted Room tests trên API 36.",
+      "command": ".\\gradlew.bat :app:connectedDebugAndroidTest :data:connectedDebugAndroidTest --no-daemon",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-003",
+        "AC-DEL01-008",
+        "AC-DEL01-010",
+        "AC-DEL01-011"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "settings.gradle.kts",
+        "ui/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-STORAGE-R2",
+      "description": "Lệnh canonical thay thế storage check đã đóng băng với cú pháp Windows path chính xác; chạy focused unit suites cho AAD, crypto, Room mapping và clock.",
+      "command": ".\\gradlew.bat :domain:test :data:testDebugUnitTest :platform:testDebugUnitTest --no-daemon",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-008"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "settings.gradle.kts"
+      ]
     }
   ],
   "evidence": [
@@ -201,14 +486,1217 @@
       "exitCode": 0,
       "summary": ".toolchains portable toolchain/download directory was removed after the user requested deleting Java/Android-related install artifacts; curl/java/gradle/sdkmanager processes were not running by process-name check.",
       "artifactPaths": []
+    },
+    {
+      "id": "E-DEL01-STATIC-R2",
+      "checkId": "CHK-DEL01-STATIC",
+      "recordedAt": "2026-08-27T15:40:41.8831283Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Static gate DEL-01 chạy lại thành công sau khi resume; SDK baseline, module graph, permission allowlist, FLAG_SECURE, codec/test seed và CHANGELOG top-entry đều đạt.",
+      "artifactPaths": [
+        "scripts/verify-foundation.ps1",
+        "CHANGELOG.md"
+      ],
+      "inputDigest": "fa16b45a26f321bb34b0e69edc9d43ba29e83abbc5ba405fe21ad5ee931a0798"
+    },
+    {
+      "id": "E-DEL01-WRAPPER-GAP",
+      "recordedAt": "2026-08-27T15:41:57.5782993Z",
+      "result": "fail",
+      "summary": "Rà soát kế hoạch với source phát hiện thiếu gradlew, gradlew.bat và gradle/wrapper/** dù PRD/S5 yêu cầu; static gate hiện chưa phát hiện thiếu wrapper, nên task phải replan trước khi tiếp tục.",
+      "artifactPaths": [
+        ".harnix/tasks/20260827-154711-del-foundation/prd.md",
+        ".harnix/tasks/20260827-154711-del-foundation/plan.md",
+        "scripts/verify-foundation.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-TOOLCHAIN-AUTHORIZED",
+      "recordedAt": "2026-08-27T15:52:09.5256982Z",
+      "result": "pass",
+      "summary": "Người dùng đã cho phép network và cài toolchain tạm theo phạm vi đã nêu: không system-wide, không đổi baseline SDK, không commit/push và dọn artifact tạm sau verification.",
+      "artifactPaths": []
+    },
+    {
+      "id": "E-DEL01-CHECK-CORRECTION",
+      "recordedAt": "2026-08-27T16:03:16.4233043Z",
+      "result": "pass",
+      "summary": "Bốn Gradle check mới bị thiếu dấu gạch chéo trong lần lưu đầu và không thể mutate theo frozen-obligation rule; đã giữ nguyên audit trail và thêm bốn check R2 có cú pháp canonical .\\gradlew.bat.",
+      "artifactPaths": []
+    },
+    {
+      "id": "E-DEL01-IMPLEMENT-REVIEW",
+      "recordedAt": "2026-08-27T16:12:04.3745250Z",
+      "result": "pass",
+      "summary": "Plan review đối chiếu source hiện tại xác nhận đủ quyết định để implement: wrapper thiếu, navigation ownership sai, clock boot marker sai, storage/codec mới là seed; không có thay đổi ngoài DEL-01.",
+      "artifactPaths": [
+        ".harnix/tasks/20260827-154711-del-foundation/plan.md",
+        ".harnix/tasks/20260827-154711-del-foundation/design.md"
+      ]
+    },
+    {
+      "id": "E-DEL01-WRAPPER-R1",
+      "checkId": "CHK-DEL01-WRAPPER",
+      "recordedAt": "2026-08-27T16:16:11.422Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Gradle Wrapper 8.13 được sinh bằng Gradle wrapper task; distribution SHA-256 và official Wrapper JAR SHA-256 đều khớp publisher.",
+      "artifactPaths": [
+        "gradlew",
+        "gradlew.bat",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "scripts/verify-wrapper.ps1"
+      ],
+      "inputDigest": "e89e44db9d377b24fef2f94234119a9c883a66a8cf8ec59750ca838c9dec8576"
+    },
+    {
+      "id": "E-DEL01-DEBUG-APP-ROOM-CLASSPATH-R1",
+      "recordedAt": "2026-08-27T16:50:58.670Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Build tích hợp sơ bộ fail deterministically tại :app:compileDebugKotlin: AppContainer truy cập Nhip2PhutDatabase nhưng :data ẩn Room runtime bằng implementation, nên consumer không resolve được supertype RoomDatabase. Domain test, platform unit compile/test và data main/androidTest compile đã đi qua boundary trước lỗi.",
+      "artifactPaths": [
+        "app/src/main/kotlin/vn/nhip2phut/app/AppContainer.kt",
+        "data/build.gradle.kts",
+        "data/src/main/kotlin/vn/nhip2phut/data/storage/Nhip2PhutDatabase.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-APP-ROOM-CLASSPATH-GREEN-R1",
+      "recordedAt": "2026-08-27T16:52:05.026Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Giả thuyết được xác nhận: public Nhip2PhutDatabase làm RoomDatabase trở thành API transitive nhưng Room runtime bị khai báo implementation. Đổi dependency runtime của :data thành api là fix tối thiểu; lệnh .\\gradlew.bat :app:compileDebugKotlin --no-daemon đã GREEN.",
+      "artifactPaths": [
+        "data/build.gradle.kts"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-CODEC-TYPED-JSON-R1",
+      "recordedAt": "2026-08-27T17:02:13.181Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": ":domain:test fail deterministically tại compileKotlin: EventDayModeCapSnapshotV1.toJson truyền StrictJsonObjectV1 cho eventObject trong khi field yêu cầu JsonElement. Boundary trước lỗi là 47 typed factory khác đã parse; reproducer hẹp là .\\gradlew.bat :domain:test --no-daemon.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertyTypesV1.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-CODEC-TYPED-JSON-GREEN-R1",
+      "recordedAt": "2026-08-27T17:03:35.831Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Giả thuyết được xác nhận: nested typed clock-integrity DTO cần unwrap StrictJsonObjectV1.element khi ghép JsonObject. Sau fix một dòng, .\\gradlew.bat :domain:test --no-daemon đã GREEN với generated 48-event và entity conformance suites.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertyTypesV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/events/GeneratedEventContractMatrixV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-RESOURCE-ASSERT-R1",
+      "recordedAt": "2026-08-27T17:05:51.053Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Build tích hợp sơ bộ fail deterministically tại :app:compileDebugUnitTestKotlin: ResourceQualifierContractTest gọi kotlin.test.assertTrue theo thứ tự JUnit message-first, nên compiler không chọn được overload tại hai kiểm tra file resource.",
+      "artifactPaths": [
+        "app/src/test/kotlin/vn/nhip2phut/app/ResourceQualifierContractTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-RESOURCE-ASSERT-GREEN-R1",
+      "recordedAt": "2026-08-27T17:06:43.743Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Giả thuyết được xác nhận: hai assert dùng thứ tự tham số JUnit thay vì kotlin.test. Đổi sang named arguments actual/message; .\\gradlew.bat :app:testDebugUnitTest --no-daemon đã GREEN.",
+      "artifactPaths": [
+        "app/src/test/kotlin/vn/nhip2phut/app/ResourceQualifierContractTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-LINT-REMOVAL-STUBS-R1",
+      "recordedAt": "2026-08-27T17:09:37.541Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Gate sơ bộ verifyFoundation fail deterministically tại :app:lintDebug với ba MissingClass trên các manifest removal stub PreviewActivity, InitializationProvider và ProfileInstallReceiver. Merged-manifest verifier đã pass; lỗi lint phát sinh vì source manifest cố ý tham chiếu class để tools:node=remove nhưng các class không nằm trên compile classpath.",
+      "artifactPaths": [
+        "app/src/main/AndroidManifest.xml",
+        "app/build/intermediates/lint_intermediate_text_report/debug/lintReportDebug/lint-results-debug.txt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-LINT-REMOVAL-STUBS-GREEN-R1",
+      "recordedAt": "2026-08-27T17:10:38.538Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Giả thuyết được xác nhận: ba lỗi chỉ thuộc removal stub cố ý. Thêm tools:ignore=MissingClass cục bộ trên đúng ba node; :app:lintDebug và :app:verifyDebugMergedManifest cùng GREEN, không dùng lint baseline và merged allowlist vẫn nguyên.",
+      "artifactPaths": [
+        "app/src/main/AndroidManifest.xml"
+      ]
+    },
+    {
+      "id": "E-DEL01-REVIEW-CLOCK-R1",
+      "recordedAt": "2026-08-27T17:28:22.878Z",
+      "result": "fail",
+      "summary": "Review độc lập clock runtime phát hiện timeout ban đầu không bao trọn mutex/dispatch, cancellation có thể để pending generation kẹt, completion goAsync có thể trễ trên đoạn non-cancellable và outcome hoàn tất đảo thứ tự có thể publish generation stale.",
+      "artifactPaths": [
+        "app/src/main/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntime.kt",
+        "app/src/test/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntimeTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-REVIEW-CLOCK-GREEN-R1",
+      "recordedAt": "2026-08-27T17:28:22.878Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Clock runtime đã dùng absolute watchdog, ATOMIC cleanup, FIFO acceptance turn, ordered ticket outcome và greatest committed generation; regressions cho queued timeout, cancelled scope, at-most-once completion và completion đảo thứ tự GREEN. Review fresh kết luận ready.",
+      "artifactPaths": [
+        "app/src/main/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntime.kt",
+        "app/src/test/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntimeTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-REVIEW-CODEC-COMPANION-R1",
+      "recordedAt": "2026-08-27T17:28:22.879Z",
+      "result": "fail",
+      "summary": "Review độc lập codec phát hiện DatasetConformance chưa thực thi companion cardinality/mirror và REMINDER_SNOOZED thiếu edge child snooze_occurrence_id; fixture cũ còn chấp nhận dataset có nguồn nhưng events rỗng.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-ARC101-MUTANT-GREEN-R1",
+      "recordedAt": "2026-08-27T17:28:22.879Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "ARC-101 gate được kiểm mutation: import thường/alias và fully-qualified android.app.AlarmManager/PendingIntent trong :ui đều bị reject; mutant tạm đã xóa và gate sạch pass.",
+      "artifactPaths": [
+        "scripts/verify-module-boundaries.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-DEVICE-KEYSTORE-R1",
+      "recordedAt": "2026-08-27T17:34:45.411Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Preliminary API-36 device gate chạy thật trên nhip2phut_del01_api36: app có 1/6 fail vì durable generation không load; data có 4/7 fail cùng tại AesGcmEnvelopeCryptoV1.encrypt với CryptoOperationException. Unit/compile đã xanh, nên boundary hẹp là AndroidKeyStore/AES-GCM provider runtime.",
+      "artifactPaths": [
+        "app/src/androidTest/kotlin/vn/nhip2phut/app/MainActivityFoundationTest.kt",
+        "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/EncryptedClockStateRoomTest.kt",
+        "data/src/main/kotlin/vn/nhip2phut/data/crypto/AesGcmEnvelopeCryptoV1.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEBUG-DEVICE-KEYSTORE-GREEN-R1",
+      "recordedAt": "2026-08-27T17:39:23.515Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Fix tối thiểu giữ randomized encryption của AndroidKeyStore: Cipher tự sinh IV khi encrypt và envelope lưu lại provider IV 12 byte. Test hẹp productionDatabaseRoundTripsAfterReopen, toàn bộ 7 test :data và 6 test :app đều GREEN trên API 36; durable clock load lại generation thành công.",
+      "artifactPaths": [
+        "data/src/main/kotlin/vn/nhip2phut/data/crypto/AesGcmEnvelopeCryptoV1.kt",
+        "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/EncryptedClockStateRoomTest.kt",
+        "app/src/androidTest/kotlin/vn/nhip2phut/app/MainActivityFoundationTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-FAKE-CLOCK-ATOMIC-R1",
+      "recordedAt": "2026-08-27T17:41:38.964Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Regression hẹp xác nhận FakeClock.advance cập nhật instant trước khi elapsedRealtimeMillis overflow, làm state bị thay đổi một phần; focused test fail tại assert snapshot bất biến.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/time/FakeClock.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/time/FakeClockTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-FAKE-CLOCK-ATOMIC-R1",
+      "recordedAt": "2026-08-27T17:41:38.964Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "FakeClock.advance tính trước cả nextInstant và nextElapsedRealtimeMillis rồi mới commit; focused overflow regression GREEN và state giữ nguyên khi ArithmeticException xảy ra.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/time/FakeClock.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/time/FakeClockTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-INSTANT-CANONICAL-R1",
+      "recordedAt": "2026-08-27T17:47:46.401Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused InstantWireV1 regression xác nhận JDK Instant.parse normalize ít nhất một alias lexical trong year-zero, 24:00 hoặc leap-second thay vì codec reject trước binding.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireScalarsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/InstantWireV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-INSTANT-CANONICAL-R1",
+      "recordedAt": "2026-08-27T17:47:46.401Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "InstantWireV1 lexical gate khóa year 0001..9999, hour 00..23 và second 00..59 trước Instant.parse; focused canonical/year-zero/24:00/leap-second suite GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireScalarsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/InstantWireV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-APP-UNIT-GATE-R1",
+      "recordedAt": "2026-08-27T17:47:46.401Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Static regression mới fail đúng tại verifyFoundation thiếu :app:testDebugUnitTest, chứng minh race/timeout ClockIntegrityRuntime unit suite chưa thuộc aggregate gate.",
+      "artifactPaths": [
+        "build.gradle.kts",
+        "scripts/verify-foundation.ps1",
+        "app/src/test/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntimeTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-APP-UNIT-GATE-R1",
+      "recordedAt": "2026-08-27T17:47:46.401Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Root verifyFoundation đã depend :app:testDebugUnitTest và static gate khóa dependency cùng ClockIntegrityRuntime test path; scripts/verify-foundation.ps1 GREEN.",
+      "artifactPaths": [
+        "build.gradle.kts",
+        "scripts/verify-foundation.ps1",
+        "app/src/test/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntimeTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-REVIEW-VERIFICATION-GAPS-R1",
+      "recordedAt": "2026-08-27T18:01:43.546Z",
+      "result": "fail",
+      "summary": "Review mutation phát hiện ba bypass trong verification: wrapper launcher chỉ grep main class, merged manifest không khóa exact action/category/filter, và permission gate bỏ uses-permission-sdk-23 cùng duplicate/maxSdkVersion.",
+      "artifactPaths": [
+        "scripts/verify-wrapper.ps1",
+        "scripts/verify-merged-manifest.ps1",
+        "scripts/verify-foundation.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-MUTATION-VERIFICATION-GREEN-R1",
+      "recordedAt": "2026-08-27T18:01:43.546Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Gate đã pin normalized official launcher hashes và reject launcher injection; exact component filters reject VIEW/BROWSABLE/custom/category/duplicate; source+merged permission gates reject sdk-23 tag, duplicate và maxSdkVersion. LF/CRLF launcher tương đương; clean foundation và merged-manifest gates GREEN.",
+      "artifactPaths": [
+        "scripts/verify-wrapper.ps1",
+        "scripts/verify-merged-manifest.ps1",
+        "scripts/verify-foundation.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-IANA-ZONE-R1",
+      "recordedAt": "2026-08-27T18:01:43.546Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused wire regression fail vì LocalStamp chấp nhận fixed-offset alias Z/+07:00/GMT+07:00 qua ZoneId.of dù contract yêu cầu IANA region ID.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireScalarsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/IanaZoneIdWireV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-IANA-ZONE-R1",
+      "recordedAt": "2026-08-27T18:01:43.546Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Wire zone validation dùng TZDB region-ID set với UTC canonical; focused IANA/offset-alias test GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireScalarsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/IanaZoneIdWireV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-REVIEW-REMINDER-CONFORMANCE-R1",
+      "recordedAt": "2026-08-27T18:01:43.546Z",
+      "result": "fail",
+      "summary": "Review importer/validator phát hiện ReminderWireV1 chưa recompute deterministic UUIDv8, chưa khóa predecessor cùng logical key và chưa reject cross-schedule snooze/link cycles/duplicate pending.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-REMINDER-CONFORMANCE-R1",
+      "recordedAt": "2026-08-27T18:01:43.546Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "ReminderOccurrenceIdCodecV1 và dataset conformance đã khóa SHA-256 UUIDv8 fixed/snooze, predecessor, parent/schedule/cardinality, cycles và duplicate pending; focused suite và full domain suite GREEN trước merge-matrix review bổ sung.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderDatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-APP-UNIT-FRESH-R1",
+      "recordedAt": "2026-08-27T18:01:43.546Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Fresh :app:testDebugUnitTest --rerun-tasks GREEN với 69 tasks, bao gồm ClockIntegrityRuntime race/timeout và app resource/navigation unit contracts.",
+      "artifactPaths": [
+        "app/src/test/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntimeTest.kt",
+        "build.gradle.kts"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-WEEKLY-CONTEXT-COHORT-R1",
+      "recordedAt": "2026-08-27T18:09:20.834Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused regression xác nhận WeeklySummarySchemaV1 từ chối export hợp lệ khi visible context counts gồm mọi terminal Session nhưng context_fit_rate dùng completed-only cohort.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/WeeklySummaryConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-WEEKLY-CONTEXT-COHORT-R1",
+      "recordedAt": "2026-08-27T18:09:20.835Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Bỏ mirror sai giữa context_fit_rate và visible counts; completion/pain mirrors vẫn fail-closed. Focused WeeklySummaryConformanceV1Test GREEN với visible 4/1 và completed-only rate 3/4.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/WeeklySummaryConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-REMINDER-MERGE-MATRIX-R1",
+      "recordedAt": "2026-08-27T18:09:20.835Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Regression merge/status phát hiện validator từng chấp nhận pending status sai kind, merge cùng kind/cross-schedule, target due muộn hơn và tie-break ngược.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderDatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-REMINDER-MERGE-MATRIX-R1",
+      "recordedAt": "2026-08-27T18:09:20.835Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Reminder conformance khóa fixed=SCHEDULED, snooze=SNOOZED, MERGED opposite-kind/same-schedule, target strictly earlier và equality snooze-over-fixed; focused suites cùng full :domain:test --rerun-tasks GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderDatasetConformanceV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-MODE-CAP-LINEAGE-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused dataset regressions xác nhận Session/projection có thể khai mode lệch source Decision và cap snapshot có ID/provenance dangling hoặc không mirror reducer.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-MODE-CAP-LINEAGE-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Dataset conformance khóa Decision→Session/projection mode lineage, conditional strict reduction và cap source/mode-trigger Feedback provenance; focused DatasetConformanceV1Test GREEN 8 tests.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-CONDITIONAL-NESTED-REF-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused projection regression lộ nested ref resolver coi optional snapshot null là non-object thay vì zero conditional ref.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-CONDITIONAL-NESTED-REF-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "nestedPropertyString trả null tại intermediate JsonNull cho conditional ref, vẫn fail-closed với non-object khác; focused regression GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-EVENT-MIRROR-FEEDBACK-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused regressions xác nhận work_schedule_saved/weekly_summary_viewed có thể lệch source row và feedback_updated chưa khóa null→value replay, feedback_complete/cap_result total matrix.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-EVENT-MIRROR-FEEDBACK-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Standalone schedule/view mirrors và feedback transition/cap side-effect matrix đã fail-closed; focused 10/10 tests GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-WEEKLY-DATASET-CONTEXT-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Complete raw graph regression xác nhận importer từng chấp nhận context_fit_rate không khớp completed-only Session cohort.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-WEEKLY-DATASET-CONTEXT-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Importer recompute context rate khi retained in-week Session count chứng minh raw graph đầy đủ và không suy cache khi retention thiếu; focused 10/10 tests GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DOMAIN-INTEGRATION-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Fresh full :domain:test --rerun-tasks --no-build-cache GREEN sau khi hợp nhất reminder, weekly, mode/cap, standalone mirrors và feedback matrix.",
+      "artifactPaths": [
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin"
+      ]
+    },
+    {
+      "id": "E-DEL01-FOUNDATION-INTEGRATION-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Pre-verification .\\gradlew.bat verifyFoundation --no-daemon --no-build-cache GREEN: 187 tasks, gồm domain/data/platform/app unit, app lint, assemble và merged manifest.",
+      "artifactPaths": [
+        "build.gradle.kts",
+        "scripts/verify-foundation.ps1",
+        "scripts/verify-merged-manifest.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEVICE-INTEGRATION-R1",
+      "recordedAt": "2026-08-27T18:22:15.660Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Pre-verification API-36 integrated device run GREEN: 7 data Room/Keystore/migration tests và 6 app shell/durable-clock tests, 155 tasks executed.",
+      "artifactPaths": [
+        "data/src/androidTest",
+        "app/src/androidTest"
+      ]
+    },
+    {
+      "id": "E-DEL01-WRAPPER-FINAL",
+      "checkId": "CHK-DEL01-WRAPPER",
+      "recordedAt": "2026-08-27T18:23:13.887Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal wrapper gate pass: Gradle 8.13 distribution, Wrapper JAR và normalized official launchers khớp checksum; pre/post input digest giống nhau.",
+      "artifactPaths": [
+        "gradlew",
+        "gradlew.bat",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "scripts/verify-wrapper.ps1"
+      ],
+      "inputDigest": "7b365daa2ff2d6713964e28438355930e6543d461e6ee104fb053f6932f7108e"
+    },
+    {
+      "id": "E-DEL01-STATIC-FINAL",
+      "checkId": "CHK-DEL01-STATIC",
+      "recordedAt": "2026-08-27T18:24:28.112Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal static gate pass: SDK baseline, module graph, offline permission allowlist, FLAG_SECURE, locale, closed codec seeds và CHANGELOG top-entry đều đạt; pre/post digest khớp.",
+      "artifactPaths": [
+        "scripts/verify-foundation.ps1",
+        "CHANGELOG.md"
+      ],
+      "inputDigest": "8f9d7f49bed65b84ec2198dbd49757f9865066b76c191f666549a068ecac07a5"
+    },
+    {
+      "id": "E-DEL01-ARC101-FINAL",
+      "checkId": "CHK-DEL01-ARC101",
+      "recordedAt": "2026-08-27T18:24:58.094Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal ARC-101 gate pass: module dependency direction và forbidden Android/storage imports đều đúng; pre/post digest khớp.",
+      "artifactPaths": [
+        "scripts/verify-module-boundaries.ps1",
+        "settings.gradle.kts"
+      ],
+      "inputDigest": "06b356964b8b720de7788cf858f236c64a01a27f575eeeddddfe76dd1a819398"
+    },
+    {
+      "id": "E-DEL01-CODEC-FINAL",
+      "checkId": "CHK-DEL01-CODEC",
+      "recordedAt": "2026-08-27T18:25:36.667Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal frozen codec gate pass: full domain strict JSON/scalar/entity/48-event/dataset conformance suite GREEN; pre/post digest khớp.",
+      "artifactPaths": [
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin"
+      ],
+      "inputDigest": "39e8b3b294f691159daa70e0b4e9370e3a984f24906fdae413c106f185c1f423"
+    },
+    {
+      "id": "E-DEL01-REVIEW-GATE-BYPASSES-R2",
+      "recordedAt": "2026-08-27T18:26:47.117Z",
+      "result": "fail",
+      "summary": "Fresh verification review xác nhận ba bypass: connected device suite chưa assert API 36; static SDK gate chỉ khóa catalog mà chưa khóa bốn Android module dùng catalog; ARC-101 regex bỏ lọt Kotlin DSL project(path = ...). Dừng formal checks để debug test-first.",
+      "artifactPaths": [
+        "build.gradle.kts",
+        "app/src/androidTest",
+        "data/src/androidTest",
+        "scripts/verify-foundation.ps1",
+        "scripts/verify-module-boundaries.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-SDK-CONSUMPTION-R1",
+      "recordedAt": "2026-08-27T18:31:10.820Z",
+      "result": "fail",
+      "exitCode": 0,
+      "summary": "Mutation app compileSdk=35 vẫn làm verify-foundation pass, xác nhận gate cũ chỉ khóa version catalog và không khóa module tiêu thụ baseline.",
+      "artifactPaths": [
+        "app/build.gradle.kts",
+        "scripts/verify-foundation.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-SDK-CONSUMPTION-R1",
+      "recordedAt": "2026-08-27T18:31:10.820Z",
+      "result": "pass",
+      "exitCode": 1,
+      "summary": "Static gate nay yêu cầu đúng một compileSdk/minSdk assignment từ version catalog trên app/ui/data/platform và app targetSdk từ catalog; compileSdk=35 mutant bị reject, clean gate pass.",
+      "artifactPaths": [
+        "scripts/verify-foundation.ps1",
+        "app/build.gradle.kts",
+        "ui/build.gradle.kts",
+        "data/build.gradle.kts",
+        "platform/build.gradle.kts"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-ARC101-NAMED-PROJECT-R1",
+      "recordedAt": "2026-08-27T18:31:10.820Z",
+      "result": "fail",
+      "exitCode": 0,
+      "summary": "Mutation ui implementation(project(path = \":data\")) vẫn làm ARC-101 pass, xác nhận regex cũ chỉ nhận positional project syntax.",
+      "artifactPaths": [
+        "ui/build.gradle.kts",
+        "scripts/verify-module-boundaries.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-ARC101-NAMED-PROJECT-R1",
+      "recordedAt": "2026-08-27T18:31:10.820Z",
+      "result": "pass",
+      "exitCode": 1,
+      "summary": "ARC-101 dùng shared project dependency pattern cho positional và named path syntax; forbidden named :data mutant bị reject, required named :domain và clean gate pass.",
+      "artifactPaths": [
+        "scripts/verify-module-boundaries.ps1"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-API36-CONTRACT-R1",
+      "recordedAt": "2026-08-27T18:31:10.820Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Instrumentation regression với expected API 35 fail đúng trên temporary API-36 AVD: expected 35 but was 36, chứng minh device-level precondition quan sát được.",
+      "artifactPaths": [
+        "app/src/androidTest/kotlin/vn/nhip2phut/app/Api36ContractTest.kt",
+        "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/Api36ContractTest.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-API36-CONTRACT-R1",
+      "recordedAt": "2026-08-27T18:31:10.820Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "App và data Api36ContractTest đều assert SDK_INT==36 và focused connected tests GREEN trên temporary API-36 AVD; static gate khóa sự hiện diện/exact assertion và cả hai device task.",
+      "artifactPaths": [
+        "app/src/androidTest/kotlin/vn/nhip2phut/app/Api36ContractTest.kt",
+        "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/Api36ContractTest.kt",
+        "scripts/verify-foundation.ps1",
+        "build.gradle.kts"
+      ]
+    },
+    {
+      "id": "E-DEL01-STATIC-FINAL-R2",
+      "checkId": "CHK-DEL01-STATIC",
+      "recordedAt": "2026-08-27T18:31:45.635Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal static gate rerun pass sau hardening: SDK catalog và exact module consumption, app/data API-36 assertions, module graph, offline manifest, FLAG_SECURE, locale, codec seeds và CHANGELOG đều đạt; pre/post digest khớp.",
+      "artifactPaths": [
+        "scripts/verify-foundation.ps1",
+        "app/src/androidTest/kotlin/vn/nhip2phut/app/Api36ContractTest.kt",
+        "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/Api36ContractTest.kt",
+        "CHANGELOG.md"
+      ],
+      "inputDigest": "d391c037dd1b911d2c04a4ce9d9db325164c8fc9a0294705395e3f4c8f9528d6"
+    },
+    {
+      "id": "E-DEL01-ARC101-FINAL-R2",
+      "checkId": "CHK-DEL01-ARC101",
+      "recordedAt": "2026-08-27T18:32:15.304Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal ARC-101 rerun pass sau regex hardening: positional và named project(path=...) dependency syntax cùng forbidden source imports đều được kiểm; pre/post digest khớp.",
+      "artifactPaths": [
+        "scripts/verify-module-boundaries.ps1",
+        "settings.gradle.kts"
+      ],
+      "inputDigest": "4e010b8736a8ccb6e629bf162442fafb2437322dedfd6640ee93970cfe45d8a2"
+    },
+    {
+      "id": "E-DEL01-FINAL-REVIEW-DOMAIN-GAPS",
+      "recordedAt": "2026-08-27T18:33:55.581Z",
+      "result": "fail",
+      "summary": "Review conformance cuối phát hiện các gap cần debug trước formal verification: replay feedback theo lịch sử, cap provenance/cycle, routine catalog lineage, Feedback.updated_at, strict JSON depth và standalone INCOMPLETE invalid_fields.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonV1.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-STRICT-EVENT-CATALOG-R1",
+      "recordedAt": "2026-08-27T18:38:44.829Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused regressions RED: strict JSON sâu thoát bằng StackOverflowError; decision_evaluated nhận INCOMPLETE sai field; recommendation/selection/start nhận routine ID lệch canonical mode.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonDepthV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventSemanticConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-STRICT-EVENT-CATALOG-R1",
+      "recordedAt": "2026-08-27T18:38:44.829Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Focused regressions GREEN: strict parser fail-closed sau 64 nesting levels; persisted INCOMPLETE chỉ exact day_mode_cap; six-routine catalog mapping được enforce tại recommendation, selection và start ceiling.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertyTypesV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonDepthV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventSemanticConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-FEEDBACK-TIMELINE-R2",
+      "recordedAt": "2026-08-27T18:49:24.373Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused feedback regressions RED: lịch sử hợp lệ effort=too_hard trước pain rồi cap tại pain=no bị reject, trong khi mutant Feedback.updated_at sai lại được chấp nhận.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-FEEDBACK-TIMELINE-R2",
+      "recordedAt": "2026-08-27T18:49:24.373Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Feedback replay theo exact LocalStamp GREEN: historical pain/cap matrix, same-transaction ordering, cap do effort hoặc pain resolution, và Feedback.updated_at latest mutation đều fail-closed.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-CAP-PROVENANCE-R2",
+      "recordedAt": "2026-08-27T18:49:24.373Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused cap regressions RED xác nhận snapshot splice A/B, self/descendant cycle và cap commit sau consumer từng lọt qua dataset conformance.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-CAP-PROVENANCE-R2",
+      "recordedAt": "2026-08-27T18:49:24.373Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Cap provenance GREEN: full resulting_cap deep-match retained Feedback, exact day_mode_cap_updated commit trước consumer, terminal source/trigger và Decision/Session/projection cycle guards.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-SESSION-ROUTINE-CATALOG-R1",
+      "recordedAt": "2026-08-27T18:49:24.373Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused Session regression RED: BUI-01 với routine_mode=RECOVER vẫn được importer chấp nhận dù canonical signed catalog quy định BUILD.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-SESSION-ROUTINE-CATALOG-R1",
+      "recordedAt": "2026-08-27T18:49:24.373Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Shared RoutineModeCatalogV1 khóa sáu canonical routine cho entity Session và event recommendation/selection/start; focused regressions GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/RoutineModeCatalogV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventSemanticConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DOMAIN-INTEGRATION-R2",
+      "recordedAt": "2026-08-27T18:49:24.373Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Fresh full .\\gradlew.bat :domain:test --no-daemon --no-build-cache --rerun-tasks GREEN sau feedback timeline, cap provenance, strict JSON, INCOMPLETE và routine catalog hardening.",
+      "artifactPaths": [
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin"
+      ]
+    },
+    {
+      "id": "E-DEL01-FRESH-REVIEW-LINEAGE-GAPS-R3",
+      "recordedAt": "2026-08-27T18:53:23.391Z",
+      "result": "fail",
+      "summary": "Fresh harnix-check phát hiện ba blocker: resolved_hold side effect chưa khóa cùng pain-answer stamp; deadline-only cap có thể kế thừa mode trigger chưa commit; cap dependency graph chưa reject cycle nhiều Decision/Session.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-FRESH-REVIEW-REMINDER-SCHEDULE-GAP-R3",
+      "recordedAt": "2026-08-27T18:54:12.041Z",
+      "result": "fail",
+      "summary": "Project-level harnix-check phát hiện fixed Reminder chưa cross-validate WorkSchedule: slot index, selected weekday, local date, indexed reminder time và DST gap/overlap có thể không khớp due_at.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-HOLD-STAMP-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Regression feedback resolved-hold RED: safety_hold_created cùng UTC instant nhưng khác LocalStamp với pain_gate_resolved vẫn từng được chấp nhận.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-HOLD-STAMP-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Resolved-hold side effect khóa exact transaction LocalStamp; focused FeedbackTransition và Companion conformance GREEN.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-CAP-TEMPORAL-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Regression inherited cap RED: consumer T2 từng nhận cap kế thừa T1 dù commit thiết lập mode-trigger chỉ xảy ra tại T3.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-CAP-GRAPH-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Cap conformance GREEN: exact unique owner/trigger commits phải có trước inherited owner và consumer; DFS tri-color reject Decision/Session cap cycles 2-3 node; full Dataset cùng Decision/Companion focused suites pass.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-REMINDER-SCHEDULE-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Reminder schedule RED: helper ban đầu chưa tồn tại; regression bổ sung còn chứng minh fixed due_at cùng ngày nhưng trước schedule effective_from instant từng được chấp nhận.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-REMINDER-SCHEDULE-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Reminder schedule GREEN 6/6: fixed occurrence resolve enabled schedule, slot, ISO weekday, effective instant, logical date, indexed wall time và canonical DST gap/overlap; snooze nằm ngoài validator; Dataset đã gọi helper.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-FEEDBACK-EXPIRY-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Feedback matrix RED: pain resolution xác nhận answered_at_or_after_origin_expiry=true vẫn từng cho phép too_hard khai cap_result=applied với snapshot/event.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-FEEDBACK-EXPIRY-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Feedback matrix GREEN 9/9: origin đã biết hết hạn bắt buộc origin_day_expired và reject cap snapshot/event cho effort transition cùng hoặc sau pain transaction.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventSemanticConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-DOMAIN-INTEGRATION-R3",
+      "recordedAt": "2026-08-27T19:08:31.099Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Tree hợp nhất GREEN: sáu focused neighboring conformance classes pass, sau đó fresh full .\\gradlew.bat :domain:test --no-daemon --no-build-cache --rerun-tasks BUILD SUCCESSFUL; git diff --check không có lỗi whitespace.",
+      "artifactPaths": [
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin"
+      ]
+    },
+    {
+      "id": "E-DEL01-FRESH-REVIEW-DST-GAPS-R4",
+      "recordedAt": "2026-08-27T19:11:33.969Z",
+      "result": "fail",
+      "summary": "Fresh cross-review phát hiện reminder DST còn hai bypass: resolved gap chạm work_end vẫn được nhận và full-civil-day gap bị reject bởi due_at.local_date trước khi so canonical resolved stamp.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1Test.kt",
+        "docs/06-technical-architecture.md"
+      ]
+    },
+    {
+      "id": "E-DEL01-FRESH-REVIEW-CAP-ORDER-R4",
+      "recordedAt": "2026-08-27T19:14:13.717Z",
+      "result": "fail",
+      "summary": "Fresh cross-review phát hiện ba gap: existing_later/same có thể tự dựng prior cap lineage, feedback replay cùng LocalStamp phụ thuộc random event_id order, và recursive cap DFS có thể StackOverflowError trên chuỗi dài.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-FRESH-REVIEW-REMINDER-SELECTION-R4",
+      "recordedAt": "2026-08-27T19:20:11.081Z",
+      "result": "fail",
+      "summary": "Fresh integrated review phát hiện delivery quá 60 phút/tại work_end, snooze target tại work_end hoặc dưới schedule đã replace, routine_selected recommended lệch routine recommendation, và lifecycle initial work_schedule_saved chưa fail-closed.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt",
+        "docs/06-technical-architecture.md",
+        "docs/07-analytics-and-validation.md"
+      ]
+    },
+    {
+      "id": "E-DEL01-FRESH-REVIEW-REMINDER-SAFETY-R5",
+      "recordedAt": "2026-08-27T20:36:43.7739394+00:00",
+      "result": "fail",
+      "summary": "Fresh domain review phát hiện reminder resolution còn thiếu precedence work_end, exact replacement/merge LocalStamp và safety_screen_shown chưa khóa content_digest vào acknowledgement history; implementation quay lại debug trước formal verification.",
+      "artifactPaths": [
+        "docs/06-technical-architecture.md",
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-RED-SCHEDULE-EDIT-TRANSACTION-R5",
+      "recordedAt": "2026-08-27T20:36:43.7739394+00:00",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Regression schedule_edit cancellation RED: reminder_cancelled vẫn được chấp nhận khi schedule.replaced_at=null, xác nhận cancellation chưa bị khóa vào transaction thay lịch.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-GREEN-DOMAIN-HARDENING-R5",
+      "recordedAt": "2026-08-27T20:36:43.7739394+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Domain hardening GREEN: Companion 18/18, Dataset 58/58, generated 48-event matrix 8/8; fresh full :domain:test chạy 21 suites, 152/152 test pass, không failure/error/skipped; git diff --check sạch.",
+      "artifactPaths": [
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin"
+      ]
+    },
+    {
+      "id": "E-DEL01-FRESH-DOMAIN-REVIEW-R5",
+      "recordedAt": "2026-08-27T20:36:43.7739394+00:00",
+      "result": "pass",
+      "summary": "Follow-up read-only review xác nhận schedule_edit cancellation yêu cầu non-null schedule.replaced_at và exact LocalStamp, không còn blocker trong phạm vi domain patch; verdict READY.",
+      "artifactPaths": [
+        "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL01-STATIC-FINAL-R5",
+      "checkId": "CHK-DEL01-STATIC",
+      "recordedAt": "2026-08-27T20:37:22.7834826+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal static gate pass sau domain hardening: wrapper, SDK baseline/consumption, module graph, offline manifest, API-36 assertions, FLAG_SECURE, locale, codec seeds và CHANGELOG đều đạt; pre/post digest khớp.",
+      "artifactPaths": [
+        "scripts/verify-foundation.ps1",
+        "CHANGELOG.md"
+      ],
+      "inputDigest": "2fadcaf9de8030c8dcb3345ccc1156d8203b64330add36ef0aa86ac9a945ea76"
+    },
+    {
+      "id": "E-DEL01-GIT-FINAL-R5",
+      "checkId": "CHK-DEL01-GIT",
+      "recordedAt": "2026-08-27T20:37:55.2618171+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal git status gate pass: working tree chỉ chứa DEL-01/Harnix task artifacts đã rà soát, không có commit/push hoặc toolchain artifact được track; pre/post digest khớp.",
+      "artifactPaths": [
+        "CHANGELOG.md"
+      ],
+      "inputDigest": "0a73ce468014eb2a80ca7c557bc5846d5f07abf738654d07de7b82cc563f987a"
+    },
+    {
+      "id": "E-DEL01-WRAPPER-FINAL-R5",
+      "checkId": "CHK-DEL01-WRAPPER",
+      "recordedAt": "2026-08-27T20:38:19.1255282+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal wrapper gate pass: Gradle 8.13 distribution, Wrapper JAR và normalized official launchers khớp checksum; pre/post digest khớp.",
+      "artifactPaths": [
+        "gradlew",
+        "gradlew.bat",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "scripts/verify-wrapper.ps1"
+      ],
+      "inputDigest": "7b365daa2ff2d6713964e28438355930e6543d461e6ee104fb053f6932f7108e"
+    },
+    {
+      "id": "E-DEL01-ARC101-FINAL-R5",
+      "checkId": "CHK-DEL01-ARC101",
+      "recordedAt": "2026-08-27T20:38:42.9892550+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal ARC-101 gate pass: positional/named project dependency syntax và forbidden Android/storage imports đều được kiểm; pre/post digest khớp.",
+      "artifactPaths": [
+        "scripts/verify-module-boundaries.ps1",
+        "settings.gradle.kts"
+      ],
+      "inputDigest": "120e81b530a5986dd55da9cd08745151cd1b6806b641933105f84101976536b8"
+    },
+    {
+      "id": "E-DEL01-GRADLE-FINAL-R5",
+      "checkId": "CHK-DEL01-GRADLE",
+      "recordedAt": "2026-08-27T20:40:15.7140423+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal verifyFoundation gate pass: domain/data/platform/app unit tests, lint, assemble và merged-manifest verification đều GREEN; pre/post digest khớp.",
+      "artifactPaths": [
+        "build.gradle.kts",
+        "scripts/verify-foundation.ps1",
+        "scripts/verify-merged-manifest.ps1"
+      ],
+      "inputDigest": "fc88e6cc54db94faf44fa585f5cd0a1572c0348ad9e2d2a90ca5244c85b1207e"
+    },
+    {
+      "id": "E-DEL01-ARC109-FINAL-R5",
+      "checkId": "CHK-DEL01-ARC109",
+      "recordedAt": "2026-08-27T20:41:06.4773922+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal frozen ARC-109 gate pass qua exact alias command: merged debug manifest giữ SDK 26/36/36, permission/component/action allowlist, backup và cleartext posture; pre/post digest khớp.",
+      "artifactPaths": [
+        "app/src/main/AndroidManifest.xml",
+        "scripts/verify-merged-manifest.ps1"
+      ],
+      "inputDigest": "531834c65ad7a94d837fc3d17dda356c6a343b5922856bce1a62cca6f82caac4"
+    },
+    {
+      "id": "E-DEL01-ARC109-R2-FINAL-R5",
+      "checkId": "CHK-DEL01-ARC109-R2",
+      "recordedAt": "2026-08-27T20:41:47.1080660+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal canonical ARC-109-R2 gate pass: merged manifest SDK/permission/component/action allowlist và offline posture đều đạt; pre/post digest khớp.",
+      "artifactPaths": [
+        "app/src/main/AndroidManifest.xml",
+        "scripts/verify-merged-manifest.ps1"
+      ],
+      "inputDigest": "cec5dbaef7f56a64fe5fb57e2191de737c5ecc37766fd075a1a3d48a00aa4d8a"
+    },
+    {
+      "id": "E-DEL01-CODEC-FINAL-R5",
+      "checkId": "CHK-DEL01-CODEC",
+      "recordedAt": "2026-08-27T20:42:29.1419572+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal frozen codec gate pass qua exact alias command: 21 domain suites/152 tests cho strict JSON, scalars, entities, causal conformance và 48 typed events đều GREEN; pre/post digest khớp.",
+      "artifactPaths": [
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin"
+      ],
+      "inputDigest": "6268bb6d15c48d5d9792efb8d7d90fd3aeb3da67d6b802798b0be8115637c745"
+    },
+    {
+      "id": "E-DEL01-CODEC-R2-FINAL-R5",
+      "checkId": "CHK-DEL01-CODEC-R2",
+      "recordedAt": "2026-08-27T20:43:04.8422276+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal canonical codec R2 gate pass: full 21-suite/152-test domain codec, event registry và dataset conformance GREEN; pre/post digest khớp.",
+      "artifactPaths": [
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin"
+      ],
+      "inputDigest": "3c010dc74cb07d35a5b845923842951f679277481bb474714ab429b77282af7a"
+    },
+    {
+      "id": "E-DEL01-STORAGE-FINAL-R5",
+      "checkId": "CHK-DEL01-STORAGE",
+      "recordedAt": "2026-08-27T20:43:57.0407718+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal frozen storage gate pass qua exact alias command: domain, data và platform unit suites cho AAD/AES-GCM/Room payload/LocalStamp/durable clock GREEN; pre/post digest khớp.",
+      "artifactPaths": [
+        "data/src/main/kotlin",
+        "data/src/test/kotlin",
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin",
+        "platform/src/main/kotlin",
+        "platform/src/test/kotlin"
+      ],
+      "inputDigest": "cc4910b4a0adc718de2d7b24ee6a8ed13ff88fe815326842b9e1935683101f6f"
+    },
+    {
+      "id": "E-DEL01-STORAGE-R2-FINAL-R5",
+      "checkId": "CHK-DEL01-STORAGE-R2",
+      "recordedAt": "2026-08-27T20:44:42.4729367+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal canonical storage R2 gate pass: domain/data/platform unit suites cho canonical AAD, crypto fail-closed, Room mapping và persisted/fake clock GREEN; pre/post digest khớp.",
+      "artifactPaths": [
+        "data/src/main/kotlin",
+        "data/src/test/kotlin",
+        "domain/src/main/kotlin",
+        "domain/src/test/kotlin",
+        "platform/src/main/kotlin",
+        "platform/src/test/kotlin"
+      ],
+      "inputDigest": "7910926d4fa62634b9d52519ec6604c37c5560b5f96956590b90351d5d8287f4"
+    },
+    {
+      "id": "E-DEL01-DEVICE-FINAL-R5",
+      "checkId": "CHK-DEL01-DEVICE",
+      "recordedAt": "2026-08-27T20:46:42.1624814+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Formal frozen device gate pass qua exact alias command trên AVD nhip2phut_del01_api36/API 36: app shell/durable-clock và encrypted Room/Keystore/migration suites GREEN; pre/post digest khớp.",
+      "artifactPaths": [
+        "app/src/androidTest",
+        "data/src/androidTest"
+      ],
+      "inputDigest": "d24ff168e46971cc98abe162fdd155cc8a456fc8e624672bc769cc97b1a6e99c"
+    },
+    {
+      "id": "E-DEL01-DEVICE-R2-TEARDOWN-RETRY-R5",
+      "recordedAt": "2026-08-27T20:49:07.7778500+00:00",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Lần đầu formal DEVICE-R2 chạy đủ 7 app + 8 data test với 0 assertion failure, nhưng UTP data onAfterAll gỡ APK gặp ADB Connection timed out. Kiểm tra ngay sau lỗi xác nhận emulator-5554 vẫn device, boot_completed=1, API=36 và cả hai XML suite 0 failure/error; phân loại transient teardown và retry nguyên lệnh.",
+      "artifactPaths": [
+        "app/src/androidTest",
+        "data/src/androidTest"
+      ]
+    },
+    {
+      "id": "E-DEL01-DEVICE-R2-FINAL-R5",
+      "checkId": "CHK-DEL01-DEVICE-R2",
+      "recordedAt": "2026-08-27T20:51:40.8166210+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "AVD API-36: app 7/7 và data 8/8; retry pass, digest khớp.",
+      "artifactPaths": [],
+      "inputDigest": "13471dfbb60c23446c979a750a47d67c1602e2cb46a30973a5e904b1104899de"
     }
   ],
   "createdAt": "2026-08-27T08:47:11.3647452Z",
-  "updatedAt": "2026-08-27T09:28:50.6127051Z",
-  "blocker": {
-    "kind": "authority",
-    "summary": "Người dùng yêu cầu dừng và xóa các artifact toolchain Java/Android tạm thời; không còn JDK/Android SDK/Gradle portable để chạy Gradle build gate DEL-01.",
-    "nextAction": "Chờ quyết định tiếp theo: chỉ dừng phần toolchain, hay xóa/hủy luôn Android foundation source và task DEL-01.",
-    "resumeStatus": "in_progress"
-  }
+  "updatedAt": "2026-08-27T21:00:44.482Z",
+  "completedAt": "2026-08-27T21:00:44.482Z"
 }
