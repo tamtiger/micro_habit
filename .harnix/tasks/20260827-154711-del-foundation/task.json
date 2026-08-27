@@ -1,0 +1,214 @@
+{
+  "generator": "harnix",
+  "schemaVersion": 2,
+  "id": "20260827-154711-del-foundation",
+  "title": "DEL-01 Foundation",
+  "mode": "full",
+  "status": "blocked",
+  "checkpoint": "implementing",
+  "goal": "Dựng nền tảng Android MVP cho Nhịp 2 Phút: project/module skeleton, baseline SDK, manifest offline allowlist, app shell, codec/storage foundation, validation script và CHANGELOG top-entry.",
+  "nonGoals": [
+    "Không implement flow onboarding/check-in/rule engine nghiệp vụ của DEL-02.",
+    "Không implement player, reminder, weekly summary, export/delete hoàn chỉnh hoặc content production ngoài foundation placeholder có contract rõ.",
+    "Không thêm account, network, AI, backend, remote analytics, billing hoặc permission ngoài allowlist."
+  ],
+  "acceptanceCriteria": [
+    {
+      "id": "AC-DEL01-001",
+      "text": "Repo có Android multi-module skeleton theo ARC dependency direction gồm :app, :ui, :domain, :data, :platform và baseline minSdk=26,targetSdk=36,compileSdk=36 được khai báo tập trung.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-STATIC"
+      ]
+    },
+    {
+      "id": "AC-DEL01-002",
+      "text": "App manifest và foundation config giữ offline posture: không INTERNET/health/calendar/location/activity/billing/CALL_PHONE; chỉ allowlist permission nền tảng cho notification và boot reconcile khi cần.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-STATIC"
+      ]
+    },
+    {
+      "id": "AC-DEL01-003",
+      "text": "App shell có MainActivity đặt FLAG_SECURE trước setContent, AppContainer composition root, navigation shell Compose và resource vi-VN tối thiểu.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-STATIC"
+      ]
+    },
+    {
+      "id": "AC-DEL01-004",
+      "text": "Foundation có closed codec/storage seed cho canonical enum/time/LocalStamp/event registry và test/verification phát hiện default sai, duplicate JSON key hoặc schema switch tách rời.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-STATIC"
+      ]
+    },
+    {
+      "id": "AC-DEL01-005",
+      "text": "Có script kiểm tra foundation/CI gate cục bộ cho SDK baseline, module boundary, manifest permission allowlist, FLAG_SECURE, CHANGELOG top-entry và repo status.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-STATIC"
+      ]
+    },
+    {
+      "id": "AC-DEL01-006",
+      "text": "CHANGELOG.md được tạo/cập nhật với entry mới nhất ở đầu, ghi rõ thay đổi của phase DEL-01.",
+      "status": "met",
+      "evidenceIds": [
+        "E-DEL01-STATIC"
+      ]
+    }
+  ],
+  "relevantPaths": [
+    "settings.gradle.kts",
+    "build.gradle.kts",
+    "gradle/libs.versions.toml",
+    "app/**",
+    "ui/**",
+    "domain/**",
+    "data/**",
+    "platform/**",
+    "scripts/**",
+    "CHANGELOG.md",
+    "docs/09-delivery-plan.md",
+    "docs/06-technical-architecture.md",
+    "docs/08-qa-and-release-gates.md",
+    "gradlew",
+    "gradlew.bat",
+    "gradle/wrapper/**"
+  ],
+  "relevantSpecs": [
+    "docs/09-delivery-plan.md#DEL-01",
+    "docs/06-technical-architecture.md#ARC-001",
+    "docs/06-technical-architecture.md#ARC-011",
+    "docs/06-technical-architecture.md#ARC-012",
+    "docs/06-technical-architecture.md#ARC-013",
+    "docs/06-technical-architecture.md#ARC-024",
+    "docs/06-technical-architecture.md#ARC-111",
+    "docs/06-technical-architecture.md#ARC-127",
+    "docs/08-qa-and-release-gates.md#ARC-101",
+    "docs/08-qa-and-release-gates.md#ARC-109"
+  ],
+  "validationPlan": [
+    {
+      "id": "CHK-DEL01-STATIC",
+      "description": "Chạy script kiểm tra foundation static gate: SDK baseline, module includes, dependency direction, permission denylist, FLAG_SECURE, codec/test files và CHANGELOG top-entry.",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/verify-foundation.ps1",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-001",
+        "AC-DEL01-002",
+        "AC-DEL01-003",
+        "AC-DEL01-004",
+        "AC-DEL01-005",
+        "AC-DEL01-006"
+      ],
+      "inputs": [
+        "@task-contract",
+        "CHANGELOG.md",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "platform/**",
+        "scripts/**",
+        "settings.gradle.kts",
+        "ui/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-GIT",
+      "description": "Kiểm tra git status trước commit để bảo đảm phase commit chỉ chứa thay đổi DEL-01 và không có file ngoài ý muốn.",
+      "command": "git status --short",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-005",
+        "AC-DEL01-006"
+      ],
+      "inputs": [
+        "@task-contract",
+        "CHANGELOG.md",
+        "app/**",
+        "data/**",
+        "domain/**",
+        "platform/**",
+        "scripts/**",
+        "settings.gradle.kts",
+        "ui/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL01-GRADLE",
+      "description": "Chạy Gradle Wrapper foundation gate để xác nhận :domain:test, :data:test và :app:assembleDebug build được với Android SDK/JDK đã cài.",
+      "command": ".\\gradlew.bat verifyFoundation --no-daemon",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL01-001",
+        "AC-DEL01-003",
+        "AC-DEL01-004",
+        "AC-DEL01-005"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle.properties",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "settings.gradle.kts",
+        "ui/**"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-DEL01-STATIC",
+      "checkId": "CHK-DEL01-STATIC",
+      "recordedAt": "2026-08-27T08:52:22.7583465Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "scripts/verify-foundation.ps1 passed: SDK baseline, module graph, manifest allowlist, FLAG_SECURE, codec/test seeds and CHANGELOG top-entry verified.",
+      "artifactPaths": [
+        "scripts/verify-foundation.ps1",
+        "CHANGELOG.md"
+      ],
+      "inputDigest": "32bd605fb7bfdedf4750dd6cc02542a50e08baf0b23c147abe1f702f13617fe0"
+    },
+    {
+      "id": "E-DEL01-TOOLCHAIN-MISSING",
+      "recordedAt": "2026-08-27T08:53:43.8341493Z",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "gradle verifyFoundation failed before execution because gradle is not recognized in PATH.",
+      "artifactPaths": []
+    },
+    {
+      "id": "E-DEL01-TOOLCHAIN-CLEANUP",
+      "recordedAt": "2026-08-27T09:28:50.6345782Z",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": ".toolchains portable toolchain/download directory was removed after the user requested deleting Java/Android-related install artifacts; curl/java/gradle/sdkmanager processes were not running by process-name check.",
+      "artifactPaths": []
+    }
+  ],
+  "createdAt": "2026-08-27T08:47:11.3647452Z",
+  "updatedAt": "2026-08-27T09:28:50.6127051Z",
+  "blocker": {
+    "kind": "authority",
+    "summary": "Người dùng yêu cầu dừng và xóa các artifact toolchain Java/Android tạm thời; không còn JDK/Android SDK/Gradle portable để chạy Gradle build gate DEL-01.",
+    "nextAction": "Chờ quyết định tiếp theo: chỉ dừng phần toolchain, hay xóa/hủy luôn Android foundation source và task DEL-01.",
+    "resumeStatus": "in_progress"
+  }
+}

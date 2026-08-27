@@ -9,7 +9,7 @@
 - Thị trường/ngôn ngữ MVP: Việt Nam, `vi-VN`
 - Nền tảng MVP: Android-first
 - Định vị: general wellness; không phải thiết bị, dịch vụ hay tư vấn y tế
-- Phạm vi repo hiện tại: product brief và bộ đặc tả triển khai; chưa chứa source Android
+- Phạm vi repo hiện tại: product brief, bộ đặc tả triển khai và skeleton Android foundation
 
 ## Tổng quan
 
@@ -51,6 +51,18 @@ Sản phẩm không chấm điểm cơ thể, không đưa ra recovery score, kh
 - Release build không được khai báo quyền `INTERNET`, health, calendar, location, activity recognition, exact alarm, billing hay `CALL_PHONE`.
 - Tất cả routine, movement, global safety copy và privacy artifact cần digest/sign-off hợp lệ trước pilot hoặc production release.
 - Thay đổi hành vi safety, data collection, content contract, permission hoặc claim sản phẩm phải có review và cập nhật baseline liên quan.
+
+## Android Foundation
+
+Repo đã có skeleton Android-first cho các phase implementation:
+
+- Module: `:app`, `:ui`, `:domain`, `:data`, `:platform`.
+- Baseline SDK: `minSdk=26`, `targetSdk=36`, `compileSdk=36`.
+- Verification cục bộ cho phase foundation:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/verify-foundation.ps1
+```
 
 ## Chuẩn bị implementation
 

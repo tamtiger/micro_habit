@@ -1,0 +1,166 @@
+{
+  "generator": "harnix",
+  "schemaVersion": 1,
+  "taskId": "20260827-154711-del-foundation",
+  "snapshots": [
+    {
+      "evidenceId": "E-DEL01-STATIC",
+      "generator": "harnix",
+      "schemaVersion": 1,
+      "taskId": "20260827-154711-del-foundation",
+      "checkId": "CHK-DEL01-STATIC",
+      "taskContractHash": "788ce575006b6ea3d5dcf9b8f4d67d3fbed26ca2916943e2ed4ca6a079068d45",
+      "entries": [
+        {
+          "path": ".harnix/tasks/20260827-154711-del-foundation/plan.md",
+          "sha256": "9ded3839b6a4f95f39ab45aaf57eb1a748762b019b053b5ae345694a5ed98ae7"
+        },
+        {
+          "path": ".harnix/tasks/20260827-154711-del-foundation/prd.md",
+          "sha256": "d392235cfb8255cb7164c795dec2df7a207e2c8ce21c4772fe536844dfa4824d"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "sha256": "73d06ae59f16793871fa4f2048e740a895b88039c2af93150b2e47ac82215a05"
+        },
+        {
+          "path": "app/build.gradle.kts",
+          "sha256": "0075f364a7c0d4dcae27fa19eb7ed9d8ee57a04be7ee1643b814625c70b92586"
+        },
+        {
+          "path": "app/src/main/AndroidManifest.xml",
+          "sha256": "b0b81cd1585ca33edce9d9916f501e81b34731f4634f0e1d564e18b0bdf75f3a"
+        },
+        {
+          "path": "app/src/main/kotlin/vn/nhip2phut/app/AppContainer.kt",
+          "sha256": "5f2cad4a79b0331579f9179b7e5e85f85f96d9c99f97c24a6d0056e498b497fa"
+        },
+        {
+          "path": "app/src/main/kotlin/vn/nhip2phut/app/MainActivity.kt",
+          "sha256": "0b70b8c4bb6811eaea32b8f65236db6f748f6da4266b228bbfb19e9f50872614"
+        },
+        {
+          "path": "app/src/main/kotlin/vn/nhip2phut/app/Nhip2PhutApplication.kt",
+          "sha256": "26191847835fbd47d49bcdc5105d46fbfbec02cc144a9e6ba872637a78d23bba"
+        },
+        {
+          "path": "app/src/main/res/values-vi/strings.xml",
+          "sha256": "5f5d5392d0f273016b84005b36d1cfc6bed8061530bca04fb87329129a183a7f"
+        },
+        {
+          "path": "app/src/main/res/values/colors.xml",
+          "sha256": "4e7fd9527d920c7d7c5aafebc044ec78e800c23a0b9a6d313ed4f5c3aaa6ce3f"
+        },
+        {
+          "path": "app/src/main/res/values/strings.xml",
+          "sha256": "5f5d5392d0f273016b84005b36d1cfc6bed8061530bca04fb87329129a183a7f"
+        },
+        {
+          "path": "app/src/main/res/values/styles.xml",
+          "sha256": "621e0bb93caa0909bf8ea45eb3d95a100f8700dc8f01917b37fde14551343f61"
+        },
+        {
+          "path": "app/src/main/res/xml/backup_rules.xml",
+          "sha256": "b3bcafd090f3e9518e5e89e173143658899a3c78befbacb20e3ba084be0050d7"
+        },
+        {
+          "path": "app/src/main/res/xml/data_extraction_rules.xml",
+          "sha256": "b00522f13034cee37dd0ffbc1ebd9e168a2ee1d1208fda870804723feae7d20c"
+        },
+        {
+          "path": "build.gradle.kts",
+          "sha256": "1ff2994d80d622bb59e312dbe521a8d659d7645b394a88aae618d6203357a902"
+        },
+        {
+          "path": "data/build.gradle.kts",
+          "sha256": "1bcfff6c0ec81342b0c8e610a1548aea3008d954ffd7dfa6c2ba1f7a9112d888"
+        },
+        {
+          "path": "data/src/main/kotlin/vn/nhip2phut/data/codec/DuplicateKeyJsonGuard.kt",
+          "sha256": "6695138b00e1f84719095b52f3cca58238e89162d9c7388288e4024d9ebe0369"
+        },
+        {
+          "path": "data/src/main/kotlin/vn/nhip2phut/data/storage/FoundationStorageContracts.kt",
+          "sha256": "ccba259e54e5eac1378e43874c5eef497ecdaea0b61a93c36ecd90e46b4c02b7"
+        },
+        {
+          "path": "data/src/test/kotlin/vn/nhip2phut/data/codec/DuplicateKeyJsonGuardTest.kt",
+          "sha256": "97e8be9eadd8afabd630c04438b4e0080ff44c2479da9dcb50ce667c99213e11"
+        },
+        {
+          "path": "domain/build.gradle.kts",
+          "sha256": "a9fb442d2497042da6726715a1f853086c5fe1c4efc919c09446f2144ff03f50"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventContracts.kt",
+          "sha256": "dabe8b941048379adb35ebcbd2b332b5179715ced88e0404fcfe505b162a17fb"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/CoreTypes.kt",
+          "sha256": "4fb9c84d7b487f9f3f0cfd6da365b47184a2ab0dafff7c0bdb71569b77e68272"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/LocalStamp.kt",
+          "sha256": "6939b68dc88f4b79ed0c4251c73bce1ff1d1add3b3cf4120180d6db40782c450"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/schedule/ScheduleTime.kt",
+          "sha256": "be9dd09e62c7d49e0e05bf090a6042ce9ad9f9e6b6157270de10479e40bc6b38"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventContractRegistryV1Test.kt",
+          "sha256": "d5b26b8f060067c9593a55f59afad6fb0e3d05449cef7ba2a25e260425311203"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/schedule/ScheduleTimeTest.kt",
+          "sha256": "f5a37d40ec113c0f2ce6d938280822d120eb3966b7c74641b34f377589a9f277"
+        },
+        {
+          "path": "gradle/libs.versions.toml",
+          "sha256": "fe282219c6c8c6483a8f8c6388b65a324049e078aec210971de5b8b4a1a74066"
+        },
+        {
+          "path": "platform/build.gradle.kts",
+          "sha256": "b9697dec62060da8fc07f24c2d406cfc925abefe82bb5441731060c33990208e"
+        },
+        {
+          "path": "platform/src/main/kotlin/vn/nhip2phut/platform/notification/BootReconcileReceiver.kt",
+          "sha256": "0eaf3cbfe28be17ab2655741c3810dd0cefe1ed46ee98ae65493ec0e7f05766b"
+        },
+        {
+          "path": "platform/src/main/kotlin/vn/nhip2phut/platform/time/AndroidClock.kt",
+          "sha256": "6f5b8e3d8f27e2043f1b0dfa088a42ff78e273aef670e8640180951acc8f2993"
+        },
+        {
+          "path": "scripts/verify-foundation.ps1",
+          "sha256": "5f99de493d0163c87da184dece77e7f9e436e21a3374f28e033249884e9a9588"
+        },
+        {
+          "path": "settings.gradle.kts",
+          "sha256": "33b3bf9559026e50f75f1e1c429a48751304ac8be84591bdf596deeed3312752"
+        },
+        {
+          "path": "ui/build.gradle.kts",
+          "sha256": "07563afc48ae5efc966fab1a0d5786a17146f51859948a1100393e4a966106e5"
+        },
+        {
+          "path": "ui/src/main/kotlin/vn/nhip2phut/ui/Nhip2PhutApp.kt",
+          "sha256": "49c0e52e328ce2b369605741118f4842b4df0b21186e3ca59650afe1bb53e0c5"
+        },
+        {
+          "path": "ui/src/main/kotlin/vn/nhip2phut/ui/theme/Nhip2PhutTheme.kt",
+          "sha256": "e7e73af765c5b046b45f759185e0fa16951b517c80478a7f2df3e6e55863ea43"
+        },
+        {
+          "path": "ui/src/main/res/values-vi/strings.xml",
+          "sha256": "36e8095b2dcf94e4d4e331231cd35f12e1f679163288f82687c5709709e9a43f"
+        },
+        {
+          "path": "ui/src/main/res/values/strings.xml",
+          "sha256": "36e8095b2dcf94e4d4e331231cd35f12e1f679163288f82687c5709709e9a43f"
+        }
+      ],
+      "inputDigest": "32bd605fb7bfdedf4750dd6cc02542a50e08baf0b23c147abe1f702f13617fe0"
+    }
+  ]
+}
