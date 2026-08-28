@@ -1,0 +1,329 @@
+{
+  "generator": "harnix",
+  "schemaVersion": 2,
+  "id": "20260828-070333-del-eligibility-rule-engine",
+  "title": "DEL-02 — Eligibility, check-in và rule engine",
+  "mode": "full",
+  "status": "in_progress",
+  "checkpoint": "implementing",
+  "goal": "Hoàn thiện DEL-02 thành một vertical domain/data/UI slice offline: eligible onboarding commit atomically, daily check-in chạy pure rule engine v1 và mọi safety/freshness constraint fail closed, deterministic và kiểm chứng được.",
+  "nonGoals": [
+    "Không claim toàn bộ DEL-M2 hoặc implement recommendation selector, pre-flight, routine player và Session lifecycle của DEL-03.",
+    "Không implement terminal feedback UI/day-mode-cap reducer E2E của DEL-04; chỉ khóa seam post-session pain hold cần cho DEL-02.",
+    "Không launch notification permission, schedule/cancel alarm hoặc implement reminder lifecycle của DEL-05; chỉ mở permission primer sau onboarding commit.",
+    "Không implement weekly summary, export/delete/retention maintenance UI, content production/sign-off hoặc pilot/release approval của DEL-06 đến DEL-09.",
+    "Không thêm network, account/cloud, AI, wearable/health SDK, permission ngoài allowlist hoặc đổi SDK 26/36/36.",
+    "Không commit, push, cài toolchain system-wide hoặc tạo PR tự động."
+  ],
+  "acceptanceCriteria": [
+    {
+      "id": "AC-DEL02-001",
+      "text": "Rule engine v1 là hàm thuần, deterministic, first-match đúng SAF-020 trên RuleInputDraftV1; output đóng giữ reason/invalid-field/route/allowed-mode canonical, không có routine_id và toàn bộ no-mode outcome không chứa mode/routine.",
+      "status": "pending",
+      "evidenceIds": []
+    },
+    {
+      "id": "AC-DEL02-002",
+      "text": "Onboarding giữ age/eligibility/scope/safety-content identity trong RAM tới initial Lưu lịch; input ineligible không tạo dữ liệu, còn eligible schedule hợp lệ commit zero-or-all Profile, first acknowledgement/current pointer, ScheduleVersion/active pointer và exact staged/scope/schedule/completion events trước khi permission primer được phép render.",
+      "status": "pending",
+      "evidenceIds": []
+    },
+    {
+      "id": "AC-DEL02-003",
+      "text": "Room nâng schema 1 lên 2 bằng migration không destructive và persist payload DEL-02 bằng AES-GCM/AAD canonical; product event dùng exact HMAC-SHA-256 dataset key, unique physical key và closed typed event codec, mọi crypto/schema/source/mirror mismatch fail closed.",
+      "status": "pending",
+      "evidenceIds": []
+    },
+    {
+      "id": "AC-DEL02-004",
+      "text": "EvaluateCheckIn commit atomically canonical CheckIn union, Decision, freshness evidence, check-in/decision events và đúng side effect: red flag hoặc từng acute issue tạo reasoned SafetyHold, REST_ONLY tạo RestDaySuppression, post-session pain factory tạo SESSION-source hold; draft incomplete và transaction lỗi không để half-state hoặc routine.",
+      "status": "pending",
+      "evidenceIds": []
+    },
+    {
+      "id": "AC-DEL02-005",
+      "text": "Lifecycle resolver áp precedence schedule-version, active window, local date và clock evidence; TTL sáu giờ dùng half-open elapsed interval, equality stale, timezone/time/generation/mapping change reconfirm đúng reason, còn hold/suppression giữ origin ZoneId/expiry bất biến và không bị clear sớm qua clock change hoặc reboot.",
+      "status": "pending",
+      "evidenceIds": []
+    },
+    {
+      "id": "AC-DEL02-006",
+      "text": "App debug có state-hoisted onboarding/check-in/safety/rest UI và app-owned navigation không bypass gate; safety copy đi qua typed non-production fixture có marker rõ, release path fail closed khi chưa có signed content, locale vi-VN/default giữ parity và semantics accessibility cơ bản.",
+      "status": "pending",
+      "evidenceIds": []
+    },
+    {
+      "id": "AC-DEL02-007",
+      "text": "DEL-02 giữ offline posture, SDK 26/36/36, module boundaries và DEL-01 regression gates; generated 1.296-case matrix, single-invalid/lazy-short-circuit tests, ít nhất 10.000 deterministic property cases, migration/atomicity/device tests và CHANGELOG DEL-02 đều xanh.",
+      "status": "pending",
+      "evidenceIds": []
+    }
+  ],
+  "relevantPaths": [
+    "CHANGELOG.md",
+    "app/build.gradle.kts",
+    "app/src/androidTest/**",
+    "app/src/main/**",
+    "app/src/test/**",
+    "build.gradle.kts",
+    "data/build.gradle.kts",
+    "data/schemas/**",
+    "data/src/androidTest/**",
+    "data/src/main/**",
+    "data/src/test/**",
+    "domain/src/main/**",
+    "domain/src/test/**",
+    "gradle/libs.versions.toml",
+    "scripts/verify-del02.ps1",
+    "ui/build.gradle.kts",
+    "ui/src/main/**",
+    "ui/src/test/**"
+  ],
+  "relevantSpecs": [
+    "docs/01-product-requirements.md — FR-001..FR-026",
+    "docs/02-ux-flows-and-copy.md — UX-010..UX-034",
+    "docs/03-safety-rule-engine.md — SAF-001..SAF-072",
+    "docs/05-data-privacy-security.md — DATA-007, SEC-006, crypto/event-idempotency và data inventory",
+    "docs/06-technical-architecture.md — ARC-013, ARC-014, ARC-020, ARC-023, ARC-024 và schema/transaction boundaries",
+    "docs/07-analytics-and-validation.md — event/onboarding/check-in/safety timing và MET-014",
+    "docs/08-qa-and-release-gates.md — QA-010..QA-033, QA-ELG và QA-TIME",
+    "docs/09-delivery-plan.md — DEL-02"
+  ],
+  "validationPlan": [
+    {
+      "id": "CHK-DEL02-DOMAIN",
+      "description": "Chạy toàn bộ domain tests cho rule engine, generated matrix/property invariants, schedule validation, freshness và safety-constraint factories.",
+      "command": ".\\gradlew.bat :domain:test",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL02-001",
+        "AC-DEL02-004",
+        "AC-DEL02-005",
+        "AC-DEL02-007"
+      ],
+      "inputs": [
+        "@task-contract",
+        "domain/build.gradle.kts",
+        "domain/src/main/**",
+        "domain/src/test/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL02-DATA",
+      "description": "Chạy JVM data tests cho encrypted payload codecs, event HMAC, transaction planner/repository mapping và rollback behavior.",
+      "command": ".\\gradlew.bat :data:testDebugUnitTest",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL02-002",
+        "AC-DEL02-003",
+        "AC-DEL02-004",
+        "AC-DEL02-005"
+      ],
+      "inputs": [
+        "@task-contract",
+        "data/build.gradle.kts",
+        "data/src/main/**",
+        "data/src/test/**",
+        "domain/src/main/**",
+        "gradle/libs.versions.toml"
+      ]
+    },
+    {
+      "id": "CHK-DEL02-APP",
+      "description": "Chạy UI/app unit, lint và assemble tests cho state machine, navigation gates, resource parity, semantics và release fail-closed content seam.",
+      "command": ".\\gradlew.bat :ui:testDebugUnitTest :app:testDebugUnitTest :app:lintDebug :app:assembleDebug",
+      "scope": "focused",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL02-002",
+        "AC-DEL02-006",
+        "AC-DEL02-007"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/build.gradle.kts",
+        "app/src/main/**",
+        "app/src/test/**",
+        "domain/src/main/**",
+        "ui/build.gradle.kts",
+        "ui/src/main/**",
+        "ui/src/test/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL02-STATIC",
+      "description": "Chạy static DEL-02 gate cho scope files, closed rule/event contracts, schema v2 migration, SDK/module/offline posture, content marker và CHANGELOG.",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-del02.ps1",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL02-001",
+        "AC-DEL02-002",
+        "AC-DEL02-003",
+        "AC-DEL02-004",
+        "AC-DEL02-005",
+        "AC-DEL02-006",
+        "AC-DEL02-007"
+      ],
+      "inputs": [
+        "@task-contract",
+        "CHANGELOG.md",
+        "app/**",
+        "data/**",
+        "docs/01-product-requirements.md",
+        "docs/02-ux-flows-and-copy.md",
+        "docs/03-safety-rule-engine.md",
+        "docs/05-data-privacy-security.md",
+        "docs/06-technical-architecture.md",
+        "docs/07-analytics-and-validation.md",
+        "docs/08-qa-and-release-gates.md",
+        "docs/09-delivery-plan.md",
+        "domain/**",
+        "gradle/libs.versions.toml",
+        "scripts/**",
+        "ui/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL02-FULL",
+      "description": "Chạy aggregate DEL-02 build gate gồm domain/data/app/ui/platform tests, lint, assemble, merged manifest và static verification.",
+      "command": ".\\gradlew.bat verifyDel02",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL02-001",
+        "AC-DEL02-002",
+        "AC-DEL02-003",
+        "AC-DEL02-004",
+        "AC-DEL02-005",
+        "AC-DEL02-006",
+        "AC-DEL02-007"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/**",
+        "build.gradle.kts",
+        "data/**",
+        "domain/**",
+        "gradle/**",
+        "gradlew",
+        "gradlew.bat",
+        "platform/**",
+        "scripts/**",
+        "settings.gradle.kts",
+        "ui/**"
+      ]
+    },
+    {
+      "id": "CHK-DEL02-DEVICE",
+      "description": "Chạy API-36 connected tests cho Room migration 1→2, encrypted zero-or-all transactions, tamper/rollback và onboarding/check-in navigation gates.",
+      "command": ".\\gradlew.bat verifyDel02Device",
+      "scope": "full",
+      "required": true,
+      "criterionIds": [
+        "AC-DEL02-002",
+        "AC-DEL02-003",
+        "AC-DEL02-004",
+        "AC-DEL02-005",
+        "AC-DEL02-006",
+        "AC-DEL02-007"
+      ],
+      "inputs": [
+        "@task-contract",
+        "app/build.gradle.kts",
+        "app/src/androidTest/**",
+        "app/src/main/**",
+        "build.gradle.kts",
+        "data/build.gradle.kts",
+        "data/schemas/**",
+        "data/src/androidTest/**",
+        "data/src/main/**",
+        "domain/src/main/**",
+        "gradle/libs.versions.toml"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-DEL02-JDK-MISSING",
+      "recordedAt": "2026-08-28T00:27:32.9770645+00:00",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused Gradle RED commands dừng tại launcher: JAVA_HOME is not set and no java command could be found; production implementation chưa bắt đầu.",
+      "artifactPaths": []
+    },
+    {
+      "id": "E-DEL02-JDK-AUTHORIZED",
+      "recordedAt": "2026-08-28T00:29:18.8103063+00:00",
+      "result": "pass",
+      "summary": "Người dùng đã cho phép tải lại JDK 17 portable vào .toolchains để tiếp tục DEL-02; phạm vi không cài system-wide và phải xác minh checksum.",
+      "artifactPaths": []
+    },
+    {
+      "id": "E-DEL02-JDK-RESTORED",
+      "recordedAt": "2026-08-28T00:30:46.8409386+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "Microsoft OpenJDK 17.0.20.1+1 portable được tải vào .toolchains; ZIP SHA-256 3d9006956fc8af5601cd24ffc4f468bef48279c7ebd8171b9bdf90d0aabfbf1f khớp checksum publisher; java và javac đều xác nhận 17.0.20.1.",
+      "artifactPaths": []
+    },
+    {
+      "id": "E-DEL02-DOMAIN-RED-R1",
+      "recordedAt": "2026-08-28T00:33:11.6713141+00:00",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Focused :domain:test chạy tới :domain:compileTestKotlin và fail đúng do các production contract DEL-02 chưa tồn tại: RuleEngineV1, WorkScheduleVersion, check-in lifecycle/freshness, daily constraints và onboarding contracts.",
+      "artifactPaths": [
+        "domain/src/test/kotlin/vn/nhip2phut/domain/rule/RuleEngineV1Test.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/checkin/CheckInModelsTest.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/checkin/CheckInLifecycleResolverTest.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/safety/DailyConstraintsTest.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/schedule/WorkScheduleVersionTest.kt",
+        "domain/src/test/kotlin/vn/nhip2phut/domain/onboarding/OnboardingContractsV1Test.kt"
+      ]
+    },
+    {
+      "id": "E-DEL02-DOMAIN-GREEN-R1",
+      "checkId": "CHK-DEL02-DOMAIN",
+      "recordedAt": "2026-08-28T00:39:14.3447186+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "CHK-DEL02-DOMAIN pass: toàn bộ :domain:test xanh, gồm Rule Engine 1.296 Cartesian + 10.000 property cases, schedule/check-in/freshness/lifecycle và daily constraints; pre/post snapshot khớp.",
+      "artifactPaths": [
+        "domain/build/test-results/test"
+      ],
+      "inputDigest": "10e7c75637a944540e6ece21dfa93707f9214f2037df80711000fcda26d08b69"
+    },
+    {
+      "id": "E-DEL02-DOMAIN-GREEN-R2",
+      "checkId": "CHK-DEL02-DOMAIN",
+      "recordedAt": "2026-08-28T00:48:57.4885587+00:00",
+      "result": "pass",
+      "exitCode": 0,
+      "summary": "CHK-DEL02-DOMAIN pass sau sửa ARC-023: :domain:test --rerun-tasks chạy 27 suites/187 tests, 0 failure/error/skipped; reboot/elapsed rollback trả evidence reconciliation typed, eventual equality inactive và overflow fail-conservative; pre/post snapshot khớp.",
+      "artifactPaths": [
+        "domain/build/test-results/test"
+      ],
+      "inputDigest": "86f3cf03f6ae25fcba2128cb8ff7fbecb251835bc862da78dfd97998b41ae033"
+    },
+    {
+      "id": "E-DEL02-ANDROID36-AUTO-INSTALL",
+      "recordedAt": "2026-08-28T00:52:41.4605390+00:00",
+      "result": "fail",
+      "exitCode": 1,
+      "summary": "Trong lúc thử compile RED data, Android Gradle Plugin tự động tải/cài platforms;android-36 revision 2 vì license đã có, trước khi command bị dừng. Đây là side effect ngoài ý định và chưa có quyền người dùng; không chạy thêm Gradle, không tự xóa package và đang chờ người dùng quyết định giữ hoặc gỡ.",
+      "artifactPaths": []
+    },
+    {
+      "id": "E-DEL02-ANDROID36-AUTHORIZED",
+      "recordedAt": "2026-08-28T14:45:44.496Z",
+      "result": "pass",
+      "summary": "Người dùng đã cho phép giữ và sử dụng platforms;android-36 vừa tải để tiếp tục compile và chạy test Gradle cho các module Android.",
+      "artifactPaths": []
+    }
+  ],
+  "createdAt": "2026-08-28T07:03:33.6270068+07:00",
+  "updatedAt": "2026-08-28T01:08:12.1742783+00:00"
+}

@@ -1,8 +1,19 @@
 {
   "extractorVersion": 1,
   "generator": "harnix",
-  "inventoryFingerprint": "093e110a3958907bce6b59d1c6e89da30be545e2ef5d89b1a152260d7bf1ad62",
+  "inventoryFingerprint": "65f9f56e95af826a88f4855b7f11a451f534236bce5f5d601c9b69dd2f1b32dc",
   "records": [
+    {
+      "byteLength": 105,
+      "contentHash": "40c1356261dbbcf53f3057f60c4d4044713cc6e647a1e1aa7fc92f89f67cf0a9",
+      "extension": "",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": ".gitignore"
+    },
     {
       "byteLength": 11382,
       "contentHash": "8a452fb61e42e9fcad7a61744765b71629466501fa2a2427643aeb2f3213ecb8",
@@ -18,6 +29,20 @@
       "kind": "documentation",
       "packagePath": "",
       "path": "AGENTS.md"
+    },
+    {
+      "byteLength": 1019,
+      "contentHash": "081e6ff9d7eaade16ad79a539145067c7ba503c11da8eda16f64ef06076c3101",
+      "extension": "md",
+      "headings": [
+        "2026-08-27 — DEL-01 Foundation",
+        "Changelog"
+      ],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "documentation",
+      "packagePath": "",
+      "path": "CHANGELOG.md"
     },
     {
       "byteLength": 27181,
@@ -48,6 +73,648 @@
       "kind": "documentation",
       "packagePath": "",
       "path": "Product Brief.md"
+    },
+    {
+      "byteLength": 5638,
+      "contentHash": "3406df86bdcb128b62809de1b374ee45a2979b832eca162e0caf51c36f147f4d",
+      "extension": "md",
+      "headings": [
+        "Android Foundation",
+        "Chuẩn bị commit",
+        "Chuẩn bị implementation",
+        "Guardrail phát triển",
+        "Nhịp 2 Phút",
+        "Trạng thái",
+        "Tài liệu chính",
+        "Tổng quan",
+        "Vòng lặp MVP"
+      ],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "documentation",
+      "packagePath": "",
+      "path": "README.md"
+    },
+    {
+      "byteLength": 3531,
+      "contentHash": "8716348ff0900b9e5aede9084314a83318de26faffc96244658e91853b0be157",
+      "extension": "kts",
+      "headings": [],
+      "identifiers": [
+        "VerifyMergedManifestTask"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/build.gradle.kts"
+    },
+    {
+      "byteLength": 363,
+      "contentHash": "bb7c65c411ffef8291436877f4f091f99617a3d1e8ff67d65ae30d6369ce604a",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "Api36ContractTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/androidTest/kotlin/vn/nhip2phut/app/Api36ContractTest.kt"
+    },
+    {
+      "byteLength": 3443,
+      "contentHash": "fd4c945790b62be47bfee34cfa49aea97d679646a19d317cec0c9533470537a1",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "MainActivityFoundationTest",
+        "lastFailure",
+        "updateSucceeded"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/androidTest/kotlin/vn/nhip2phut/app/MainActivityFoundationTest.kt"
+    },
+    {
+      "byteLength": 2734,
+      "contentHash": "98cc8806b4429a1948a53d764e3891f93313df1140811e1747a4ae1869c8b9fd",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ManifestPolicyTest",
+        "section"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/androidTest/kotlin/vn/nhip2phut/app/ManifestPolicyTest.kt"
+    },
+    {
+      "byteLength": 2508,
+      "contentHash": "0fb2b7079d0158d8a0fa6c51d5bbcfac00f0b674f9bd8bc3c5d4d6d242622583",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/AndroidManifest.xml"
+    },
+    {
+      "byteLength": 2096,
+      "contentHash": "426fbde219065c54123ca242703aab3d7c7e171d68815ef0292f2402503384b4",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AppContainer"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/main/kotlin/vn/nhip2phut/app/AppContainer.kt"
+    },
+    {
+      "byteLength": 878,
+      "contentHash": "5503cd625ebe490fe87665e0e423fe45bba0d43857fe4a7442622b137cd44bce",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "MainActivity"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/main/kotlin/vn/nhip2phut/app/MainActivity.kt"
+    },
+    {
+      "byteLength": 529,
+      "contentHash": "fa5c153f5667c82c4b156603ab2c6cdc6e34f69b832f8acfc70e83f7ba16c9a7",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "Nhip2PhutApplication",
+        "container"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/main/kotlin/vn/nhip2phut/app/Nhip2PhutApplication.kt"
+    },
+    {
+      "byteLength": 338,
+      "contentHash": "56d4735bd2db4b20e6b769ca26f1fafd7e523344db6ee338d0e3ab0048078a43",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AppDestination"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/main/kotlin/vn/nhip2phut/app/navigation/AppDestination.kt"
+    },
+    {
+      "byteLength": 1021,
+      "contentHash": "ce336ee6bccd552ff143df7b61140db5080e4d32f99411a760241128b4a3d5f5",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/main/kotlin/vn/nhip2phut/app/navigation/Nhip2PhutNavHost.kt"
+    },
+    {
+      "byteLength": 8550,
+      "contentHash": "9a99806256950279b67a37467e2021534f53c9e39630cd16eb4b1ba837fc4c90",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AcceptedMutation",
+        "ClockIntegrityRuntime",
+        "ClockStateUpdateGateway",
+        "LoadedClockGenerationSource",
+        "committedGeneration",
+        "generation",
+        "greatestCommittedGeneration",
+        "newestOutcome",
+        "nextTicket",
+        "nextTicketToResolve",
+        "queueTail",
+        "succeeded",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/main/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntime.kt"
+    },
+    {
+      "byteLength": 77,
+      "contentHash": "8204611920019aff784861b00902f6bbaa8a3057728dc86311dbb47cdb07424e",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/res/values-b+vi+VN/strings.xml"
+    },
+    {
+      "byteLength": 82,
+      "contentHash": "5f5d5392d0f273016b84005b36d1cfc6bed8061530bca04fb87329129a183a7f",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/res/values-vi/strings.xml"
+    },
+    {
+      "byteLength": 79,
+      "contentHash": "4e7fd9527d920c7d7c5aafebc044ec78e800c23a0b9a6d313ed4f5c3aaa6ce3f",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/res/values/colors.xml"
+    },
+    {
+      "byteLength": 82,
+      "contentHash": "5f5d5392d0f273016b84005b36d1cfc6bed8061530bca04fb87329129a183a7f",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/res/values/strings.xml"
+    },
+    {
+      "byteLength": 123,
+      "contentHash": "621e0bb93caa0909bf8ea45eb3d95a100f8700dc8f01917b37fde14551343f61",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/res/values/styles.xml"
+    },
+    {
+      "byteLength": 300,
+      "contentHash": "019a4d4250984c1028d4474fa7f8010e728c2d92e07bb1fe45724d9d11478c42",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/res/xml/backup_rules.xml"
+    },
+    {
+      "byteLength": 643,
+      "contentHash": "0f3f8bf9b006b2aed603c50323310536ee1534feac46350403225dd445d29e6d",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "app/src/main/res/xml/data_extraction_rules.xml"
+    },
+    {
+      "byteLength": 2002,
+      "contentHash": "46b50e4cd8d7701233137071e128fd235dd170789f70714111c21642cba2664d",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ResourceQualifierContractTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/test/kotlin/vn/nhip2phut/app/ResourceQualifierContractTest.kt"
+    },
+    {
+      "byteLength": 385,
+      "contentHash": "dc286eb62a4942b80e49230d6629c395752bf92becf17151a8df71827a6143e9",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AppDestinationTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/test/kotlin/vn/nhip2phut/app/navigation/AppDestinationTest.kt"
+    },
+    {
+      "byteLength": 11908,
+      "contentHash": "be41b9eb243319fb29d1846ec5d3d409082fa711755a1b6be924226917a5608e",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockIntegrityRuntimeTest",
+        "call",
+        "calls",
+        "completed",
+        "firstCompletionCount",
+        "secondCompletionCount",
+        "updates"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "app/src/test/kotlin/vn/nhip2phut/app/time/ClockIntegrityRuntimeTest.kt"
+    },
+    {
+      "byteLength": 985,
+      "contentHash": "acbacddd03d8271e885d7e5a58a8f9404a960c6c1b043ef684f8dd90ce5a355a",
+      "extension": "kts",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "build.gradle.kts"
+    },
+    {
+      "byteLength": 1302,
+      "contentHash": "6cb7c5b464e0602cce589c63e31afd24e322455b564f3d92070e321ea44c7059",
+      "extension": "kts",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/build.gradle.kts"
+    },
+    {
+      "byteLength": 1753,
+      "contentHash": "7327b2b71cbe0cf6f5fd55dd2d75d00e1f0852c9fa608ea65187ba440450b792",
+      "extension": "json",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "data/schemas/vn.nhip2phut.data.storage.Nhip2PhutDatabase/1.json"
+    },
+    {
+      "byteLength": 372,
+      "contentHash": "15062abda68fc9ae4f7084d1dcc232ca52cb55cde1a66d92e4a3a1e77ca80ac8",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "Api36ContractTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/Api36ContractTest.kt"
+    },
+    {
+      "byteLength": 3957,
+      "contentHash": "d6bab4e98a02cc19fd4d8ace6cb38ad2e8516d607b938362e3e1bb3b27a0b1d8",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockStateAtomicUpdateTest",
+        "InMemoryKeyProvider",
+        "database",
+        "key",
+        "repository"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/ClockStateAtomicUpdateTest.kt"
+    },
+    {
+      "byteLength": 4710,
+      "contentHash": "31c389fbd7ed1f0299895d5421c3ac9ca9753e92c459bc270128ec6ca8f4863f",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "EncryptedClockStateRoomTest",
+        "context",
+        "database",
+        "keyProvider",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/EncryptedClockStateRoomTest.kt"
+    },
+    {
+      "byteLength": 2436,
+      "contentHash": "6bf975cb10f9c2eff824922942f9e1423c9f93fcee5efad2274e74f04f0373ff",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "Nhip2PhutDatabaseMigrationTest",
+        "context",
+        "database"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/androidTest/kotlin/vn/nhip2phut/data/storage/Nhip2PhutDatabaseMigrationTest.kt"
+    },
+    {
+      "byteLength": 5178,
+      "contentHash": "6695138b00e1f84719095b52f3cca58238e89162d9c7388288e4024d9ebe0369",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "DuplicateJsonKeyException",
+        "Parser",
+        "index"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/codec/DuplicateKeyJsonGuard.kt"
+    },
+    {
+      "byteLength": 2444,
+      "contentHash": "b5c7ff46f35ce9e82755a3c538a9444904fd6e09087664f619049192d38ad172",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AesGcmEnvelopeCryptoV1",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/crypto/AesGcmEnvelopeCryptoV1.kt"
+    },
+    {
+      "byteLength": 4978,
+      "contentHash": "dd6e6020c47acfcf9206e52d0c11e7a041a83adf7dded874f39b51982e507e52",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AndroidKeyStoreKeyProviderV1",
+        "PreferredAesKeyGeneratorV1",
+        "failure",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/crypto/AndroidKeyStoreKeyProviderV1.kt"
+    },
+    {
+      "byteLength": 2565,
+      "contentHash": "4c01044d5e88e9c867bddee97aff1320f86aed3c5f9cb0f50956dd8f24166c85",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "RecordPrimaryKeyV1",
+        "Singleton",
+        "Uuid",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/crypto/CanonicalAadV1.kt"
+    },
+    {
+      "byteLength": 1484,
+      "contentHash": "da1264c27921c0c3b5516fba95a8fec79fc6c601cde4301b53723453d673955f",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AadBindingV1",
+        "AesKeyProviderV1",
+        "CryptoAuthenticationException",
+        "CryptoException",
+        "CryptoKeyUnavailableException",
+        "CryptoMetadataV1",
+        "CryptoOperationException",
+        "MalformedEncryptedPayloadException",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/crypto/CryptoContractV1.kt"
+    },
+    {
+      "byteLength": 2153,
+      "contentHash": "c5233124ec90c592208eb8c2f238f556e7447e912b69a264a11e31e98576c390",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "EncryptedPayloadV1",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/crypto/EncryptedPayloadV1.kt"
+    },
+    {
+      "byteLength": 1729,
+      "contentHash": "f4243714836e39b7efab40e807f357c07ed094571d55963f67549901da75c817",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockStateDao",
+        "ClockStateEntity",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/storage/ClockStateEntity.kt"
+    },
+    {
+      "byteLength": 2834,
+      "contentHash": "b16f524348f4e9dcd22e94edaa52bd490d6d8b36dcd63435a9f969e13395447a",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockStatePayloadException",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/storage/ClockStatePayloadCodecV1.kt"
+    },
+    {
+      "byteLength": 2024,
+      "contentHash": "4d63e2ddf686d8aa1be77d196248f9c81f41cc3e5750e3fbfa8588f98865f740",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockGenerationOverflowException",
+        "ClockStateRegressionException",
+        "DurableClockStateCoordinator"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/storage/DurableClockStateCoordinator.kt"
+    },
+    {
+      "byteLength": 5393,
+      "contentHash": "f7c6e7f979f73ba16c1cd34c001bc12d8ead083e0e665a3ddeacd8551637f64f",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockStateStorageException",
+        "EncryptedClockStateRepository"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/storage/EncryptedClockStateRepository.kt"
+    },
+    {
+      "byteLength": 897,
+      "contentHash": "822cd9da725b346b704813d8e2f1d3360fb0f1de6e01be8f75416a8b1c4abb7d",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "Nhip2PhutDatabase",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/main/kotlin/vn/nhip2phut/data/storage/Nhip2PhutDatabase.kt"
+    },
+    {
+      "byteLength": 550,
+      "contentHash": "97e8be9eadd8afabd630c04438b4e0080ff44c2479da9dcb50ce667c99213e11",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "DuplicateKeyJsonGuardTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/test/kotlin/vn/nhip2phut/data/codec/DuplicateKeyJsonGuardTest.kt"
+    },
+    {
+      "byteLength": 9247,
+      "contentHash": "0bf70764fdd529ccce214f4f3cf61351f0c1cf33541068f1bacb645b03e9f4ca",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AesGcmEnvelopeV1Test",
+        "InMemoryKeyProvider",
+        "and"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/test/kotlin/vn/nhip2phut/data/crypto/AesGcmEnvelopeV1Test.kt"
+    },
+    {
+      "byteLength": 4424,
+      "contentHash": "dc74e84bc8002710cf1fc586986d1f2531d8ec98afb99e34a962cb9bf2a35485",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "CanonicalAadV1Test",
+        "aad"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/test/kotlin/vn/nhip2phut/data/crypto/CanonicalAadV1Test.kt"
+    },
+    {
+      "byteLength": 4180,
+      "contentHash": "8efd775616b2cde9413ea5756bd76b64bfefaa530f0f086b1c7b69d64ad72346",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "PreferredAesKeyGeneratorV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/test/kotlin/vn/nhip2phut/data/crypto/PreferredAesKeyGeneratorV1Test.kt"
+    },
+    {
+      "byteLength": 1350,
+      "contentHash": "a5a49dce270a2b9c940d0da2afa870dfdfa9f76fef9812f500c5e708ab4e8c14",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockStatePayloadCodecV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/test/kotlin/vn/nhip2phut/data/storage/ClockStatePayloadCodecV1Test.kt"
+    },
+    {
+      "byteLength": 4608,
+      "contentHash": "a4aae3f24dded31e2a27a380cff7a1bdadcdf80205167a7481e381c9b84b8d95",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "DurableClockStateReducerTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "data/src/test/kotlin/vn/nhip2phut/data/storage/DurableClockStateReducerTest.kt"
     },
     {
       "byteLength": 109180,
@@ -474,6 +1141,992 @@
       "kind": "documentation",
       "packagePath": "",
       "path": "docs/README.md"
+    },
+    {
+      "byteLength": 338,
+      "contentHash": "7eeaf56456cf28416d307b2585493972935f4816d07062cccafe57333d4e7eb4",
+      "extension": "kts",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/build.gradle.kts"
+    },
+    {
+      "byteLength": 7991,
+      "contentHash": "c29ec2f0c8423b60f14451bd1bbf73c80182e3fa51c9cd4f43a70e2967d81e16",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "EventEnvelopeMaskV1",
+        "class"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventContracts.kt"
+    },
+    {
+      "byteLength": 3269,
+      "contentHash": "6377fa93d6e237727ebe23e97b878a781abd49af45daa8caf4a9ca46d1811e36",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "LogicalKey",
+        "SelectorPart"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventIdempotencyCodecV1.kt"
+    },
+    {
+      "byteLength": 15844,
+      "contentHash": "4a313854aab7ca151f9cda80922fb00a84c5e6ce6a851e4c39c33e8693e0da3a",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AgeGateAnsweredPropertiesV1",
+        "AppFirstOpenedPropertiesV1",
+        "CheckInReconfirmationRequiredPropertiesV1",
+        "CheckInStartedPropertiesV1",
+        "CheckInSubmittedPropertiesV1",
+        "DayModeCapUpdatedPropertiesV1",
+        "DecisionEvaluatedPropertiesV1",
+        "EventAdditionalRefV1",
+        "EventCompanionPlanV1",
+        "EventEnvelopeV1",
+        "EventIdempotencyPlanV1",
+        "EventPropertiesV1",
+        "EventRefPlanV1",
+        "EventSpecV1",
+        "ExportCompletedPropertiesV1",
+        "ExportFailedPropertiesV1",
+        "ExportStartedPropertiesV1",
+        "FeedbackUpdatedPropertiesV1",
+        "NormalizedCompanionClaimV1",
+        "NotificationPermissionPromptedPropertiesV1",
+        "NotificationPermissionUpdatedPropertiesV1",
+        "OnboardingCompletedPropertiesV1",
+        "OnboardingStartedPropertiesV1",
+        "PainGateResolvedPropertiesV1",
+        "ProductEventWireV1",
+        "RecommendationShownPropertiesV1",
+        "ReminderBlockedPermissionPropertiesV1",
+        "ReminderCancelledPropertiesV1",
+        "ReminderDismissedPropertiesV1",
+        "ReminderMergedPropertiesV1",
+        "ReminderOpenedPropertiesV1",
+        "ReminderPostedPropertiesV1"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertiesV1.kt"
+    },
+    {
+      "byteLength": 15439,
+      "contentHash": "06e9cb797e598b5d2cd039b1ba9700a4079650f01bfa58004472d9ee68198fdd",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "CheckIn",
+        "Duration",
+        "EventClockIntegrityEvidenceV1",
+        "EventDayModeCapSnapshotV1",
+        "EventTimingV1",
+        "EventWireTokenV1",
+        "Fixed",
+        "Invalid",
+        "LogicalFixedKeyV1",
+        "ReminderScheduleBranchV1",
+        "SafetyHoldSourceV1",
+        "Snooze",
+        "class"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertyTypesV1.kt"
+    },
+    {
+      "byteLength": 60234,
+      "contentHash": "1c937b72e9bf99c118090c7ca8516d7152e0e55945eb23e7a42427fc489c74c0",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt"
+    },
+    {
+      "byteLength": 18805,
+      "contentHash": "87c02b8a7b25f64588772b1c7fb926f723c1cd5ea85eccf18c690ac33b2f9874",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/TypedEventPropertiesV1.kt"
+    },
+    {
+      "byteLength": 1352,
+      "contentHash": "4fb9c84d7b487f9f3f0cfd6da365b47184a2ab0dafff7c0bdb71569b77e68272",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "class"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/CoreTypes.kt"
+    },
+    {
+      "byteLength": 538,
+      "contentHash": "6939b68dc88f4b79ed0c4251c73bce1ff1d1add3b3cf4120180d6db40782c450",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockPort",
+        "ClockSnapshot",
+        "LocalStamp"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/LocalStamp.kt"
+    },
+    {
+      "byteLength": 536,
+      "contentHash": "be9dd09e62c7d49e0e05bf090a6042ce9ad9f9e6b6157270de10479e40bc6b38",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ScheduleTime"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/schedule/ScheduleTime.kt"
+    },
+    {
+      "byteLength": 5010,
+      "contentHash": "be199ddafe140bc3d48276221fbfe451a5888d4ee05f7c999f66816fdee26d0f",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "DurableClockState",
+        "RawClockSnapshot",
+        "class",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/time/ClockIntegrity.kt"
+    },
+    {
+      "byteLength": 3620,
+      "contentHash": "273c255d0687117f4ca9e641a3210bc81bf709a2bc5ba7419f73cb96ff9f6932",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "FakeClock",
+        "bootMarker",
+        "clockGeneration",
+        "elapsedRealtimeMillis",
+        "instant",
+        "zoneId"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/time/FakeClock.kt"
+    },
+    {
+      "byteLength": 8837,
+      "contentHash": "83b62005fc881ae0eb0f10d1dcfeb6b467dd424009b0d25c50a4837d758df84c",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ClosedCodecV1.kt"
+    },
+    {
+      "byteLength": 72616,
+      "contentHash": "979a4370759628649a10ac6cd6574d8e8676f708d66abdbbf2d57b072ce4a5f1",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "BoundClaim",
+        "ClaimKey",
+        "ClaimLedger",
+        "acceptedOrder",
+        "acceptedState",
+        "consumed",
+        "current",
+        "exists",
+        "val",
+        "value"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt"
+    },
+    {
+      "byteLength": 72042,
+      "contentHash": "2bdfb694d01246ef0636a7d5d4533d32251793a3c76f46a539b782fe8c20d46e",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "CapConformanceContextV1",
+        "CapConsumerV1",
+        "CapDependencyFrameV1",
+        "CapDependencyNodeV1",
+        "CapExpiryEvidenceV1",
+        "CapResultOwnerCommitV1",
+        "CapResultOwnersV1",
+        "Decision",
+        "LogicalFixedKeyV1",
+        "RefUniverse",
+        "RelationshipFrameV1",
+        "ReminderOccurrenceNodeV1",
+        "RetainedCapUpdateV1",
+        "RetainedRecommendationV1",
+        "RuntimeProjectionKeyV1",
+        "Session",
+        "checks",
+        "current",
+        "expectedDenominator",
+        "expectedNumerator",
+        "nextEdgeIndex",
+        "previousGroup",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt"
+    },
+    {
+      "byteLength": 29170,
+      "contentHash": "2e0fe9535d9f00f00163c69e3f8ccb2f2e5c32b8331949b67957af3c449d3665",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "CheckInWireV1",
+        "DecisionWireV1",
+        "ExportDatasetWireV1",
+        "FeedbackWireV1",
+        "ProfileWireV1",
+        "ReminderWireV1",
+        "SessionWireV1",
+        "WeeklySummaryWireV1",
+        "WorkScheduleWireV1"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt"
+    },
+    {
+      "byteLength": 2172,
+      "contentHash": "20a6644fe1e737c1f1ef7673add9ba3d942e40073e89d53385a6b44544819de2",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1.kt"
+    },
+    {
+      "byteLength": 5522,
+      "contentHash": "c2b323b32c1361419944df93ae4bd1ac8d41c6b8ac67f4961ea511be5ba8468d",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "schedule"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1.kt"
+    },
+    {
+      "byteLength": 742,
+      "contentHash": "9ac7f7853faa8c2d1dc863f8107be3ee095318f0b735d9322c33ab7978d15e71",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/RoutineModeCatalogV1.kt"
+    },
+    {
+      "byteLength": 8397,
+      "contentHash": "2875a1c16afa3a91d66048f00c93d0c273fd4efaaf9507558ba6ce495d522450",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "DuplicateMemberGuard",
+        "StrictJsonObjectV1",
+        "WireContractException",
+        "checks",
+        "cursor",
+        "index",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonV1.kt"
+    },
+    {
+      "byteLength": 17814,
+      "contentHash": "a84e2b3db547cf5d7f5e10a28411046c60c3dcb4f9f34e9fb7aa7026a666a4c7",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockIntegrityEvidenceWireV1",
+        "ClosedWireRecordV1",
+        "ContentIdentityWireV1",
+        "DayModeCapSnapshotWireV1",
+        "DayModeCapUpdateSnapshotWireV1",
+        "DecisionFreshnessEvidenceWireV1",
+        "ExportMetadataWireV1",
+        "PlayerCheckpointWireV1",
+        "RecordCountsWireV1",
+        "RestDaySuppressionSnapshotWireV1",
+        "SafetyAcknowledgementWireV1",
+        "SafetyHoldSnapshotWireV1",
+        "SessionRuntimeCapSnapshotWireV1",
+        "SkippedStepWireV1",
+        "WeeklyRateWireV1"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireCommonDtosV1.kt"
+    },
+    {
+      "byteLength": 16433,
+      "contentHash": "d5eaa48ff4b6becb2b839127213b617094768acb02c15720c468b494565e3217",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ArrayShapeV1",
+        "BooleanShapeV1",
+        "CheckedStringShapeV1",
+        "ClosedObjectSchemaV1",
+        "DateWireV1",
+        "EnumShapeV1",
+        "InstantWireV1",
+        "Int64ShapeV1",
+        "LocalStampWireV1",
+        "NullableShapeV1",
+        "ObjectShapeV1",
+        "SemVerWireV1",
+        "Sha256DigestWireV1",
+        "TimeMinuteWireV1",
+        "UuidWireV1",
+        "WireFieldV1",
+        "WireShapeV1",
+        "class"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireScalarsV1.kt"
+    },
+    {
+      "byteLength": 3429,
+      "contentHash": "b4149224291bbc0c8b3a2c149fcb8f5f8b7ffdc37201a83c753bd8a661cab58e",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClosedEventCodecV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/ClosedEventCodecV1Test.kt"
+    },
+    {
+      "byteLength": 704,
+      "contentHash": "d5b26b8f060067c9593a55f59afad6fb0e3d05449cef7ba2a25e260425311203",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "EventContractRegistryV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventContractRegistryV1Test.kt"
+    },
+    {
+      "byteLength": 3817,
+      "contentHash": "f7d4ef8bcc579e163067d7ff4f18e11cd910bf65fecdc0dd97032659d02e196b",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "EventSemanticConformanceV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventSemanticConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 28794,
+      "contentHash": "8bf2b93b92e10cf846cd7f22b835ac6765c38c588c916e843f9233b232957f0a",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "GeneratedEventContractMatrixV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/GeneratedEventContractMatrixV1Test.kt"
+    },
+    {
+      "byteLength": 633,
+      "contentHash": "f5a37d40ec113c0f2ce6d938280822d120eb3966b7c74641b34f377589a9f277",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ScheduleTimeTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/schedule/ScheduleTimeTest.kt"
+    },
+    {
+      "byteLength": 3090,
+      "contentHash": "6869e104eac9fbff64805cb58c28bef015340f28af2f275bed95d72a72cbb1d1",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "FakeClockTest"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/time/FakeClockTest.kt"
+    },
+    {
+      "byteLength": 1102,
+      "contentHash": "ae739075304905845ab7cb005d282b937068beed971cddf17d32a23a8b6cca04",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "CanonicalInt64V1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CanonicalInt64V1Test.kt"
+    },
+    {
+      "byteLength": 7285,
+      "contentHash": "cd1fd3e359be3d40e4f3e83c991e45abb13c99f451880996a733fb6f20daef73",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClosedCodecV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedCodecV1Test.kt"
+    },
+    {
+      "byteLength": 5255,
+      "contentHash": "23388ec178019f173e4960696887998e72f8f272952405dc38b2b3eb6ef919a5",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClosedSchemaNegativeV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedSchemaNegativeV1Test.kt"
+    },
+    {
+      "byteLength": 6466,
+      "contentHash": "be230b7bd595aa8f5fb3b8abe000c760e318f071f767d8de19ef272084e25e35",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClosedSchemaRegistryV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedSchemaRegistryV1Test.kt"
+    },
+    {
+      "byteLength": 44748,
+      "contentHash": "3e1f95e0baa40c6b29fd02b97682e9ca47123e091d762d5c010bd8645bcbd3d9",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "CompanionConformanceV1Test",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 129575,
+      "contentHash": "268d0cc1d5870ee620f6ddcaa783f47e3c292fac39fec7691d839f433f3ee4e0",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "CapMergeFixture",
+        "DatasetConformanceV1Test",
+        "Freshness",
+        "RecommendationFixture",
+        "WeeklySummaryFixture",
+        "decisionModes",
+        "feedbackResults",
+        "mutant",
+        "runtimeModes",
+        "val",
+        "valid"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 7557,
+      "contentHash": "4f864aa16fa0123768242aebb7406fa0ab411844a65e36734a2652d6176c96f2",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "DecisionConformanceV1Test",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DecisionConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 31844,
+      "contentHash": "6280bacf611531aca0ee1a1c96146bcf7f734a8a005c3401526b9f8189832115",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "FeedbackTransitionConformanceV1Test",
+        "FeedbackUpdateFixture",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 1189,
+      "contentHash": "43904d75ed909dbf1bbbd3f72cfad96bac44bc674563596dda7fac696361947b",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "IanaZoneIdWireV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/IanaZoneIdWireV1Test.kt"
+    },
+    {
+      "byteLength": 759,
+      "contentHash": "d858aedc4d71d6b872509b055d666ab349278efab4ff213e9f887c0cd2b274e9",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "InstantWireV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/InstantWireV1Test.kt"
+    },
+    {
+      "byteLength": 11981,
+      "contentHash": "f58052b183a14366facf7d08da447b1af40c15c992c13bb89b0803f4c21d1b51",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ReminderDatasetConformanceV1Test",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderDatasetConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 2014,
+      "contentHash": "7a2c8232aaa28810b2f873d5472da2290fcecce95f710fab52c3823428c92c42",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ReminderOccurrenceIdCodecV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1Test.kt"
+    },
+    {
+      "byteLength": 11480,
+      "contentHash": "6e581608ddb0199ae3fd406bc34ff7a14849cc15de8fee0b0e84c7e9d82a675f",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ReminderScheduleConformanceV1Test",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 512,
+      "contentHash": "bff611a03b1ab13802cd295a6e79bd23b5b0b19267e91e0ea191a6c2013d4ebf",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "StrictJsonDepthV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonDepthV1Test.kt"
+    },
+    {
+      "byteLength": 2978,
+      "contentHash": "3aceede765610419139276af06828ee2a272435690a5a7864f8486f0a5353324",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "WeeklySummaryConformanceV1Test"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/WeeklySummaryConformanceV1Test.kt"
+    },
+    {
+      "byteLength": 204,
+      "contentHash": "9726021f6b8e6b31fc34439dc5e6b5d50905da381daf37ba58329ff4b072e8f2",
+      "extension": "properties",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "gradle.properties"
+    },
+    {
+      "byteLength": 2963,
+      "contentHash": "cb889c73fa5ee0bcb0abb22c31bf1ec31567c272dbee32a43ca3551df15084c8",
+      "extension": "toml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "gradle/libs.versions.toml"
+    },
+    {
+      "byteLength": 338,
+      "contentHash": "c040b6ef2fb893ff5beea5a281614f2848f1c3996a7886f650b713f8240656a2",
+      "extension": "properties",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "gradle/wrapper/gradle-wrapper.properties"
+    },
+    {
+      "byteLength": 8752,
+      "contentHash": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933",
+      "extension": "",
+      "headings": [
+        "#           ksh Gradle",
+        "#       Busybox and similar reduced shells will NOT work, because this script",
+        "#       The \"traditional\" practice of packing multiple parameters into a",
+        "#       There are tweaks for specific operating systems such as AIX, CygWin,",
+        "#       Where the inherited environment variables (DEFAULT_JVM_OPTS, JAVA_OPTS,",
+        "#       You can find Gradle at https://github.com/gradle/gradle/.",
+        "#      https://www.apache.org/licenses/LICENSE-2.0",
+        "#   (1) You need a POSIX-compliant shell to run this script. If your /bin/sh is",
+        "#   (2) This script targets any POSIX shell, so it avoids extensions provided",
+        "#   (3) This script is generated from the Groovy template",
+        "#   Gradle start up script for POSIX generated by Gradle.",
+        "#   Important for patching:",
+        "#   Important for running:",
+        "#   readarray ARGS < <( xargs -n1 <<<\"$var\" ) &&",
+        "# Copyright © 2015-2021 the original authors.",
+        "# In Bash we could simply go:"
+      ],
+      "identifiers": [
+        "name",
+        "that"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "gradlew"
+    },
+    {
+      "byteLength": 2966,
+      "contentHash": "2209f919a22528af59a2af2ad97e8d056cca18e39f7d87aa3fd549a73b180150",
+      "extension": "bat",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "script",
+      "packagePath": "",
+      "path": "gradlew.bat"
+    },
+    {
+      "byteLength": 600,
+      "contentHash": "990030c7eeb9c89a6c40791f3b71351c8669af26883b953745a80ed65e967077",
+      "extension": "kts",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "platform/build.gradle.kts"
+    },
+    {
+      "byteLength": 1767,
+      "contentHash": "ed207c7c23b5ab38724ac56a23c2c496efa01eba8fb4323fe4444f9d4a68d559",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "BootReconcileReceiver",
+        "ClockSignalCompletion",
+        "ClockSignalHandler",
+        "ClockSignalHandlerOwner",
+        "CompleteOnce"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "platform/src/main/kotlin/vn/nhip2phut/platform/notification/BootReconcileReceiver.kt"
+    },
+    {
+      "byteLength": 3925,
+      "contentHash": "f3ada8374bf3801b453d5955fa35deee4cdd84bb928fff78eeafa913f1080592",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AndroidClock",
+        "AndroidRawClockSource",
+        "ClockGenerationSource",
+        "ClockGenerationUnavailableException",
+        "ClockSnapshotUnavailableException",
+        "RawClockSource",
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "platform/src/main/kotlin/vn/nhip2phut/platform/time/AndroidClock.kt"
+    },
+    {
+      "byteLength": 1235,
+      "contentHash": "67fe74a2aa10e72afbdef04c9adbbd884f3b39155cf1be1d5c64dfc3660cb19d",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "ClockSignalContractTest",
+        "finishes"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "platform/src/test/kotlin/vn/nhip2phut/platform/notification/ClockSignalContractTest.kt"
+    },
+    {
+      "byteLength": 2557,
+      "contentHash": "b42a7b191c66f4da56c2eb708ea6c92c18f4322df2dc3232bed0a56a1869b59c",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "AndroidClockTest",
+        "generation"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "platform/src/test/kotlin/vn/nhip2phut/platform/time/AndroidClockTest.kt"
+    },
+    {
+      "byteLength": 14438,
+      "contentHash": "fea215d402f8fbc8d6488eca69cd193639938118650950c04bb901b8aad40496",
+      "extension": "ps1",
+      "headings": [],
+      "identifiers": [
+        "AppDestination",
+        "Assert",
+        "Get",
+        "Read"
+      ],
+      "importTargets": [],
+      "kind": "script",
+      "packagePath": "",
+      "path": "scripts/verify-foundation.ps1"
+    },
+    {
+      "byteLength": 6669,
+      "contentHash": "8f311fd411e14fe01a1e4399f0a57999ee46fd5df064d5c9289b3c4c474dda05",
+      "extension": "ps1",
+      "headings": [],
+      "identifiers": [
+        "Android",
+        "Assert",
+        "Normalize"
+      ],
+      "importTargets": [],
+      "kind": "script",
+      "packagePath": "",
+      "path": "scripts/verify-merged-manifest.ps1"
+    },
+    {
+      "byteLength": 4151,
+      "contentHash": "c9bfa5294ccb4d5b722293c35536886038b42f8e4dbd379871c3189e78d43a65",
+      "extension": "ps1",
+      "headings": [],
+      "identifiers": [
+        "Assert",
+        "Get",
+        "Read"
+      ],
+      "importTargets": [],
+      "kind": "script",
+      "packagePath": "",
+      "path": "scripts/verify-module-boundaries.ps1"
+    },
+    {
+      "byteLength": 3804,
+      "contentHash": "a630d5235665116ed38a19c114513d3f73eb1026098a6ccce5a8991faee9079b",
+      "extension": "ps1",
+      "headings": [],
+      "identifiers": [
+        "Get"
+      ],
+      "importTargets": [],
+      "kind": "script",
+      "packagePath": "",
+      "path": "scripts/verify-wrapper.ps1"
+    },
+    {
+      "byteLength": 427,
+      "contentHash": "33b3bf9559026e50f75f1e1c429a48751304ac8be84591bdf596deeed3312752",
+      "extension": "kts",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "settings.gradle.kts"
+    },
+    {
+      "byteLength": 981,
+      "contentHash": "8127fb3b68e994589ca6574b035a56b96668977eadecdf7cee9db5ac92d4ade8",
+      "extension": "kts",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "ui/build.gradle.kts"
+    },
+    {
+      "byteLength": 1930,
+      "contentHash": "1f43120ab0f91efd8e50d591cdcf4dc519f8908b263eebcf44420ae5aab6c471",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "val"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "ui/src/main/kotlin/vn/nhip2phut/ui/Nhip2PhutApp.kt"
+    },
+    {
+      "byteLength": 2783,
+      "contentHash": "5942d301bb9b3a51f85faabc1cfdfe127d4c9c72bfde4ed34fc905b7df639623",
+      "extension": "kt",
+      "headings": [],
+      "identifiers": [
+        "Nhip2PhutSpacing"
+      ],
+      "importTargets": [],
+      "kind": "other",
+      "packagePath": "",
+      "path": "ui/src/main/kotlin/vn/nhip2phut/ui/theme/Nhip2PhutTheme.kt"
+    },
+    {
+      "byteLength": 185,
+      "contentHash": "bca6c9dc41da3fa79003d35d4d98d559c538951d23d24a6d546916a4f97a916e",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "ui/src/main/res/values-b+vi+VN/strings.xml"
+    },
+    {
+      "byteLength": 191,
+      "contentHash": "36e8095b2dcf94e4d4e331231cd35f12e1f679163288f82687c5709709e9a43f",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "ui/src/main/res/values-vi/strings.xml"
+    },
+    {
+      "byteLength": 191,
+      "contentHash": "36e8095b2dcf94e4d4e331231cd35f12e1f679163288f82687c5709709e9a43f",
+      "extension": "xml",
+      "headings": [],
+      "identifiers": [],
+      "importTargets": [],
+      "kind": "config",
+      "packagePath": "",
+      "path": "ui/src/main/res/values/strings.xml"
     }
   ],
   "schemaVersion": 1

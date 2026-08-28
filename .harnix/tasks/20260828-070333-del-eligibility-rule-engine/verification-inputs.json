@@ -1,0 +1,485 @@
+{
+  "generator": "harnix",
+  "schemaVersion": 1,
+  "taskId": "20260828-070333-del-eligibility-rule-engine",
+  "snapshots": [
+    {
+      "evidenceId": "E-DEL02-DOMAIN-GREEN-R1",
+      "generator": "harnix",
+      "schemaVersion": 1,
+      "taskId": "20260828-070333-del-eligibility-rule-engine",
+      "checkId": "CHK-DEL02-DOMAIN",
+      "taskContractHash": "de00d2e7872644412d44f83596e1ff7ba717e3f63303572dbefe666f173f559a",
+      "entries": [
+        {
+          "path": ".harnix/tasks/20260828-070333-del-eligibility-rule-engine/plan.md",
+          "sha256": "0d7d82e03337d77f74852ef89800324523a7caaccf2a29a865b6b7353cac8431"
+        },
+        {
+          "path": ".harnix/tasks/20260828-070333-del-eligibility-rule-engine/prd.md",
+          "sha256": "655f4784be92bfb11945c9a2d3c4115ed664f3aa43ba1a530a953c390ecb5960"
+        },
+        {
+          "path": "domain/build.gradle.kts",
+          "sha256": "7ffc75e88bffdb8124b5b2daef4d5f55954f183a736b8f47a05a2a32a009c933"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/checkin/CheckInLifecycleResolver.kt",
+          "sha256": "220e710d3fa32a0e4161efeeb339d8ed046c263e4177109d6116a96a66719000"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/checkin/CheckInModels.kt",
+          "sha256": "ede84eca00d9876802e6c5c08c0f07b8958c6c739a75ac71e847bc1491e20f5e"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventContracts.kt",
+          "sha256": "89ed86d3f2cad4f44e5fb7608f96bd5782d4a1297c3f083d01ffd43b2c461c57"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventIdempotencyCodecV1.kt",
+          "sha256": "6377fa93d6e237727ebe23e97b878a781abd49af45daa8caf4a9ca46d1811e36"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertiesV1.kt",
+          "sha256": "4a313854aab7ca151f9cda80922fb00a84c5e6ce6a851e4c39c33e8693e0da3a"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertyTypesV1.kt",
+          "sha256": "06e9cb797e598b5d2cd039b1ba9700a4079650f01bfa58004472d9ee68198fdd"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+          "sha256": "1c937b72e9bf99c118090c7ca8516d7152e0e55945eb23e7a42427fc489c74c0"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/TypedEventPropertiesV1.kt",
+          "sha256": "87c02b8a7b25f64588772b1c7fb926f723c1cd5ea85eccf18c690ac33b2f9874"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/CoreTypes.kt",
+          "sha256": "51f015f1bc97561175668bc39383ed4651a66d070cf86ed2299909d44e9992f6"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/LocalStamp.kt",
+          "sha256": "3bebb043ba00ac2149d91307c73a0043e691a4b309b10d816e8e056b8336d92c"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/onboarding/OnboardingContractsV1.kt",
+          "sha256": "797bb6d9f564dfcdad6b57a6187877359679e332cf68b551b4ffdd1b3cf5138d"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/rule/RuleEngineV1.kt",
+          "sha256": "51d2d1a60aee90c3587f356b3c5c91aa4f837b5eab4e168e798ac0a129be891f"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/safety/DailyConstraints.kt",
+          "sha256": "725ab5d673e24d3e011976f6b05ce55b662a4920a43a73212ef8c89ecc0d0a7c"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/schedule/ScheduleTime.kt",
+          "sha256": "dd9faf4daca497ddf8b8728ca5276a74c0ad89f5a3eca2a8a602836cc514ecae"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/schedule/WorkScheduleVersion.kt",
+          "sha256": "d2cb7df686790c169063d3e3bf11b8d413ac8eaf10efce5a1c03ec4e37e30e3e"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/time/ClockIntegrity.kt",
+          "sha256": "be199ddafe140bc3d48276221fbfe451a5888d4ee05f7c999f66816fdee26d0f"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/time/FakeClock.kt",
+          "sha256": "273c255d0687117f4ca9e641a3210bc81bf709a2bc5ba7419f73cb96ff9f6932"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ClosedCodecV1.kt",
+          "sha256": "83b62005fc881ae0eb0f10d1dcfeb6b467dd424009b0d25c50a4837d758df84c"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+          "sha256": "979a4370759628649a10ac6cd6574d8e8676f708d66abdbbf2d57b072ce4a5f1"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+          "sha256": "2bdfb694d01246ef0636a7d5d4533d32251793a3c76f46a539b782fe8c20d46e"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt",
+          "sha256": "2e0fe9535d9f00f00163c69e3f8ccb2f2e5c32b8331949b67957af3c449d3665"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1.kt",
+          "sha256": "20a6644fe1e737c1f1ef7673add9ba3d942e40073e89d53385a6b44544819de2"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1.kt",
+          "sha256": "c2b323b32c1361419944df93ae4bd1ac8d41c6b8ac67f4961ea511be5ba8468d"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/RoutineModeCatalogV1.kt",
+          "sha256": "9ac7f7853faa8c2d1dc863f8107be3ee095318f0b735d9322c33ab7978d15e71"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonV1.kt",
+          "sha256": "2875a1c16afa3a91d66048f00c93d0c273fd4efaaf9507558ba6ce495d522450"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireCommonDtosV1.kt",
+          "sha256": "a84e2b3db547cf5d7f5e10a28411046c60c3dcb4f9f34e9fb7aa7026a666a4c7"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireScalarsV1.kt",
+          "sha256": "d5eaa48ff4b6becb2b839127213b617094768acb02c15720c468b494565e3217"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/checkin/CheckInLifecycleResolverTest.kt",
+          "sha256": "34c10f28b83e5c2ada2c96294291347146561bea05ed7874158bbc54dd6a0348"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/checkin/CheckInModelsTest.kt",
+          "sha256": "68a37948e743479a1b310deb3b2b4589299551f20ae6d6d298cca37f9310a091"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/ClosedEventCodecV1Test.kt",
+          "sha256": "b4149224291bbc0c8b3a2c149fcb8f5f8b7ffdc37201a83c753bd8a661cab58e"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventContractRegistryV1Test.kt",
+          "sha256": "5e02b1c8e9cb833b929bc8d2de62fca18e660181bf7e24850e9e58183015fdc5"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventSemanticConformanceV1Test.kt",
+          "sha256": "f7d4ef8bcc579e163067d7ff4f18e11cd910bf65fecdc0dd97032659d02e196b"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/GeneratedEventContractMatrixV1Test.kt",
+          "sha256": "8bf2b93b92e10cf846cd7f22b835ac6765c38c588c916e843f9233b232957f0a"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/onboarding/OnboardingContractsV1Test.kt",
+          "sha256": "66021ef0cf8882909da360fa9d4323d59762fb4e4f148879cc546975bd95505b"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/rule/RuleEngineV1Test.kt",
+          "sha256": "250f32c6903788b8607617ed992990580dcd94c7f80dc64805b7b30a1fc48beb"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/safety/DailyConstraintsTest.kt",
+          "sha256": "42e01e05e686e2a37346d5c7912d5480229544f5c54c23fc030d63b6aea570e1"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/schedule/ScheduleTimeTest.kt",
+          "sha256": "7863c1c51d1a63a2521ced6d94a81ea4909645b469cfb4f195e0456393a76324"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/schedule/WorkScheduleVersionTest.kt",
+          "sha256": "975d174c6c81b8cfc558802003e9546ef3886a797ec387aca9df593b32c478d6"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/time/FakeClockTest.kt",
+          "sha256": "6869e104eac9fbff64805cb58c28bef015340f28af2f275bed95d72a72cbb1d1"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CanonicalInt64V1Test.kt",
+          "sha256": "ae739075304905845ab7cb005d282b937068beed971cddf17d32a23a8b6cca04"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedCodecV1Test.kt",
+          "sha256": "cd1fd3e359be3d40e4f3e83c991e45abb13c99f451880996a733fb6f20daef73"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedSchemaNegativeV1Test.kt",
+          "sha256": "23388ec178019f173e4960696887998e72f8f272952405dc38b2b3eb6ef919a5"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedSchemaRegistryV1Test.kt",
+          "sha256": "be230b7bd595aa8f5fb3b8abe000c760e318f071f767d8de19ef272084e25e35"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt",
+          "sha256": "3e1f95e0baa40c6b29fd02b97682e9ca47123e091d762d5c010bd8645bcbd3d9"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt",
+          "sha256": "268d0cc1d5870ee620f6ddcaa783f47e3c292fac39fec7691d839f433f3ee4e0"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DecisionConformanceV1Test.kt",
+          "sha256": "4f864aa16fa0123768242aebb7406fa0ab411844a65e36734a2652d6176c96f2"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt",
+          "sha256": "6280bacf611531aca0ee1a1c96146bcf7f734a8a005c3401526b9f8189832115"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/IanaZoneIdWireV1Test.kt",
+          "sha256": "43904d75ed909dbf1bbbd3f72cfad96bac44bc674563596dda7fac696361947b"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/InstantWireV1Test.kt",
+          "sha256": "d858aedc4d71d6b872509b055d666ab349278efab4ff213e9f887c0cd2b274e9"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderDatasetConformanceV1Test.kt",
+          "sha256": "f58052b183a14366facf7d08da447b1af40c15c992c13bb89b0803f4c21d1b51"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1Test.kt",
+          "sha256": "7a2c8232aaa28810b2f873d5472da2290fcecce95f710fab52c3823428c92c42"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1Test.kt",
+          "sha256": "6e581608ddb0199ae3fd406bc34ff7a14849cc15de8fee0b0e84c7e9d82a675f"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonDepthV1Test.kt",
+          "sha256": "bff611a03b1ab13802cd295a6e79bd23b5b0b19267e91e0ea191a6c2013d4ebf"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/WeeklySummaryConformanceV1Test.kt",
+          "sha256": "3aceede765610419139276af06828ee2a272435690a5a7864f8486f0a5353324"
+        }
+      ],
+      "inputDigest": "10e7c75637a944540e6ece21dfa93707f9214f2037df80711000fcda26d08b69"
+    },
+    {
+      "evidenceId": "E-DEL02-DOMAIN-GREEN-R2",
+      "generator": "harnix",
+      "schemaVersion": 1,
+      "taskId": "20260828-070333-del-eligibility-rule-engine",
+      "checkId": "CHK-DEL02-DOMAIN",
+      "taskContractHash": "de00d2e7872644412d44f83596e1ff7ba717e3f63303572dbefe666f173f559a",
+      "entries": [
+        {
+          "path": ".harnix/tasks/20260828-070333-del-eligibility-rule-engine/plan.md",
+          "sha256": "c67b2d9607c499dae43693cf9edc3a46e033f65efff3c4c13d308241c89c49fc"
+        },
+        {
+          "path": ".harnix/tasks/20260828-070333-del-eligibility-rule-engine/prd.md",
+          "sha256": "655f4784be92bfb11945c9a2d3c4115ed664f3aa43ba1a530a953c390ecb5960"
+        },
+        {
+          "path": "domain/build.gradle.kts",
+          "sha256": "7ffc75e88bffdb8124b5b2daef4d5f55954f183a736b8f47a05a2a32a009c933"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/checkin/CheckInLifecycleResolver.kt",
+          "sha256": "220e710d3fa32a0e4161efeeb339d8ed046c263e4177109d6116a96a66719000"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/checkin/CheckInModels.kt",
+          "sha256": "ede84eca00d9876802e6c5c08c0f07b8958c6c739a75ac71e847bc1491e20f5e"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventContracts.kt",
+          "sha256": "89ed86d3f2cad4f44e5fb7608f96bd5782d4a1297c3f083d01ffd43b2c461c57"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventIdempotencyCodecV1.kt",
+          "sha256": "6377fa93d6e237727ebe23e97b878a781abd49af45daa8caf4a9ca46d1811e36"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertiesV1.kt",
+          "sha256": "4a313854aab7ca151f9cda80922fb00a84c5e6ce6a851e4c39c33e8693e0da3a"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventPropertyTypesV1.kt",
+          "sha256": "06e9cb797e598b5d2cd039b1ba9700a4079650f01bfa58004472d9ee68198fdd"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/EventSpecsV1.kt",
+          "sha256": "1c937b72e9bf99c118090c7ca8516d7152e0e55945eb23e7a42427fc489c74c0"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/events/TypedEventPropertiesV1.kt",
+          "sha256": "87c02b8a7b25f64588772b1c7fb926f723c1cd5ea85eccf18c690ac33b2f9874"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/CoreTypes.kt",
+          "sha256": "51f015f1bc97561175668bc39383ed4651a66d070cf86ed2299909d44e9992f6"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/model/LocalStamp.kt",
+          "sha256": "3bebb043ba00ac2149d91307c73a0043e691a4b309b10d816e8e056b8336d92c"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/onboarding/OnboardingContractsV1.kt",
+          "sha256": "797bb6d9f564dfcdad6b57a6187877359679e332cf68b551b4ffdd1b3cf5138d"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/rule/RuleEngineV1.kt",
+          "sha256": "51d2d1a60aee90c3587f356b3c5c91aa4f837b5eab4e168e798ac0a129be891f"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/safety/DailyConstraints.kt",
+          "sha256": "ef6d35ba5209b2af3978a70b012a4b613af064c7ea689621b9cfae9300656f9c"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/schedule/ScheduleTime.kt",
+          "sha256": "dd9faf4daca497ddf8b8728ca5276a74c0ad89f5a3eca2a8a602836cc514ecae"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/schedule/WorkScheduleVersion.kt",
+          "sha256": "d2cb7df686790c169063d3e3bf11b8d413ac8eaf10efce5a1c03ec4e37e30e3e"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/time/ClockIntegrity.kt",
+          "sha256": "be199ddafe140bc3d48276221fbfe451a5888d4ee05f7c999f66816fdee26d0f"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/time/FakeClock.kt",
+          "sha256": "273c255d0687117f4ca9e641a3210bc81bf709a2bc5ba7419f73cb96ff9f6932"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ClosedCodecV1.kt",
+          "sha256": "83b62005fc881ae0eb0f10d1dcfeb6b467dd424009b0d25c50a4837d758df84c"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1.kt",
+          "sha256": "979a4370759628649a10ac6cd6574d8e8676f708d66abdbbf2d57b072ce4a5f1"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1.kt",
+          "sha256": "2bdfb694d01246ef0636a7d5d4533d32251793a3c76f46a539b782fe8c20d46e"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ExportWireDtosV1.kt",
+          "sha256": "2e0fe9535d9f00f00163c69e3f8ccb2f2e5c32b8331949b67957af3c449d3665"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1.kt",
+          "sha256": "20a6644fe1e737c1f1ef7673add9ba3d942e40073e89d53385a6b44544819de2"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1.kt",
+          "sha256": "c2b323b32c1361419944df93ae4bd1ac8d41c6b8ac67f4961ea511be5ba8468d"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/RoutineModeCatalogV1.kt",
+          "sha256": "9ac7f7853faa8c2d1dc863f8107be3ee095318f0b735d9322c33ab7978d15e71"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonV1.kt",
+          "sha256": "2875a1c16afa3a91d66048f00c93d0c273fd4efaaf9507558ba6ce495d522450"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireCommonDtosV1.kt",
+          "sha256": "a84e2b3db547cf5d7f5e10a28411046c60c3dcb4f9f34e9fb7aa7026a666a4c7"
+        },
+        {
+          "path": "domain/src/main/kotlin/vn/nhip2phut/domain/wire/v1/WireScalarsV1.kt",
+          "sha256": "d5eaa48ff4b6becb2b839127213b617094768acb02c15720c468b494565e3217"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/checkin/CheckInLifecycleResolverTest.kt",
+          "sha256": "34c10f28b83e5c2ada2c96294291347146561bea05ed7874158bbc54dd6a0348"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/checkin/CheckInModelsTest.kt",
+          "sha256": "68a37948e743479a1b310deb3b2b4589299551f20ae6d6d298cca37f9310a091"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/ClosedEventCodecV1Test.kt",
+          "sha256": "b4149224291bbc0c8b3a2c149fcb8f5f8b7ffdc37201a83c753bd8a661cab58e"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventContractRegistryV1Test.kt",
+          "sha256": "5e02b1c8e9cb833b929bc8d2de62fca18e660181bf7e24850e9e58183015fdc5"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/EventSemanticConformanceV1Test.kt",
+          "sha256": "f7d4ef8bcc579e163067d7ff4f18e11cd910bf65fecdc0dd97032659d02e196b"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/events/GeneratedEventContractMatrixV1Test.kt",
+          "sha256": "8bf2b93b92e10cf846cd7f22b835ac6765c38c588c916e843f9233b232957f0a"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/onboarding/OnboardingContractsV1Test.kt",
+          "sha256": "66021ef0cf8882909da360fa9d4323d59762fb4e4f148879cc546975bd95505b"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/rule/RuleEngineV1Test.kt",
+          "sha256": "250f32c6903788b8607617ed992990580dcd94c7f80dc64805b7b30a1fc48beb"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/safety/DailyConstraintsTest.kt",
+          "sha256": "f0cc6941b1e457947eec072a0fadd74907ed8ffa39c3c757169a7b564fdd4cac"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/schedule/ScheduleTimeTest.kt",
+          "sha256": "7863c1c51d1a63a2521ced6d94a81ea4909645b469cfb4f195e0456393a76324"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/schedule/WorkScheduleVersionTest.kt",
+          "sha256": "975d174c6c81b8cfc558802003e9546ef3886a797ec387aca9df593b32c478d6"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/time/FakeClockTest.kt",
+          "sha256": "6869e104eac9fbff64805cb58c28bef015340f28af2f275bed95d72a72cbb1d1"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CanonicalInt64V1Test.kt",
+          "sha256": "ae739075304905845ab7cb005d282b937068beed971cddf17d32a23a8b6cca04"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedCodecV1Test.kt",
+          "sha256": "cd1fd3e359be3d40e4f3e83c991e45abb13c99f451880996a733fb6f20daef73"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedSchemaNegativeV1Test.kt",
+          "sha256": "23388ec178019f173e4960696887998e72f8f272952405dc38b2b3eb6ef919a5"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ClosedSchemaRegistryV1Test.kt",
+          "sha256": "be230b7bd595aa8f5fb3b8abe000c760e318f071f767d8de19ef272084e25e35"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/CompanionConformanceV1Test.kt",
+          "sha256": "3e1f95e0baa40c6b29fd02b97682e9ca47123e091d762d5c010bd8645bcbd3d9"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DatasetConformanceV1Test.kt",
+          "sha256": "268d0cc1d5870ee620f6ddcaa783f47e3c292fac39fec7691d839f433f3ee4e0"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/DecisionConformanceV1Test.kt",
+          "sha256": "4f864aa16fa0123768242aebb7406fa0ab411844a65e36734a2652d6176c96f2"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/FeedbackTransitionConformanceV1Test.kt",
+          "sha256": "6280bacf611531aca0ee1a1c96146bcf7f734a8a005c3401526b9f8189832115"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/IanaZoneIdWireV1Test.kt",
+          "sha256": "43904d75ed909dbf1bbbd3f72cfad96bac44bc674563596dda7fac696361947b"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/InstantWireV1Test.kt",
+          "sha256": "d858aedc4d71d6b872509b055d666ab349278efab4ff213e9f887c0cd2b274e9"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderDatasetConformanceV1Test.kt",
+          "sha256": "f58052b183a14366facf7d08da447b1af40c15c992c13bb89b0803f4c21d1b51"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderOccurrenceIdCodecV1Test.kt",
+          "sha256": "7a2c8232aaa28810b2f873d5472da2290fcecce95f710fab52c3823428c92c42"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/ReminderScheduleConformanceV1Test.kt",
+          "sha256": "6e581608ddb0199ae3fd406bc34ff7a14849cc15de8fee0b0e84c7e9d82a675f"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/StrictJsonDepthV1Test.kt",
+          "sha256": "bff611a03b1ab13802cd295a6e79bd23b5b0b19267e91e0ea191a6c2013d4ebf"
+        },
+        {
+          "path": "domain/src/test/kotlin/vn/nhip2phut/domain/wire/v1/WeeklySummaryConformanceV1Test.kt",
+          "sha256": "3aceede765610419139276af06828ee2a272435690a5a7864f8486f0a5353324"
+        }
+      ],
+      "inputDigest": "86f3cf03f6ae25fcba2128cb8ff7fbecb251835bc862da78dfd97998b41ae033"
+    }
+  ]
+}
